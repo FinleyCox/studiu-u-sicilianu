@@ -42,18 +42,17 @@ RUN npm run build
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Laravel キャッシュクリア & マイグレーション実行
-RUN php artisan config:clear
-RUN php artisan cache:clear
-RUN php artisan view:clear
-
 # 本番環境用の設定
 ENV PHP_OPCACHE_ENABLE=1
 ENV PHP_OPCACHE_ENABLE_CLI=1
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 
-# マイグレーションを実行しつつ、Laravel を起動
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
+# Laravel 起動前に環境をリセット
+CMD php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan view:clear && \
+    php artisan migrate --force && \
+    php artisan serve --host=0.0.0.0 --port=8080
 
 # ポートを公開
 EXPOSE 8080
