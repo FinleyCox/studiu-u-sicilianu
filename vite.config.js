@@ -25,12 +25,4 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
-    base: '/',  // ベースパスが正しいか確認
-    server: {
-        https: true, // HTTPSを使用
-    },
-    build: {
-        // ビルドの際にHTTPSで提供されるように設定
-        assetsDir: 'assets', // もし必要なら、ビルド出力先の設定を調整
-    },
 });
