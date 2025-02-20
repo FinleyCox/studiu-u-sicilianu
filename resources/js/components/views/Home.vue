@@ -1,7 +1,7 @@
 <template>
     <nav class="nav flex-column custom-nav">
         <router-link class="nav-link" to="/quiz">
-            <i class="bi bi-question-circle"></i> Quiz
+            <i class="bi bi-question-circle"></i> Word Quiz
         </router-link>
     </nav>
 </template>

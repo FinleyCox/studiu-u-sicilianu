@@ -1,13 +1,10 @@
 <template>
     <!-- TODO:
-        時間制限
-        選択したものを色付け
-        結果を表示したら次の問題
-        ５回やる
-        不正解は溜めておいて、最後に再度出題
+        終了画面にリザルト、間違えたワード一覧
+        もう一度やるボタンでカウントリセットしてfetchquiz
     -->
     <div class="container">
-        <div class="quiz-container" id="quiz">
+        <div v-if="questionCount < 5" class="quiz-container" id="quiz">
             <div class="quiz-header">
                 <h2>word quiz</h2>
                 <div class="progress">
@@ -20,16 +17,23 @@
                     {{ sicilian }}
                 </p>
                 <div class="options">
-                <button v-for="option in options" :key="option" class="option btn btn-outline-secondary" @click="checkAnswer(option)">
+                <button
+                    v-for="option in options" :key="option"
+                    :class="['option', 'btn', 'btn-outline-secondary', selectedOption === option ? (option === answer ? 'correct' : 'incorrect') : '']"
+                    @click="checkAnswer(option)
+
+                ">
                     {{ option }}
                 </button>
             </div>
             </div>
-            <div class="quiz-footer">
-                <div class="timer" id="timer">Time: 30s</div>
+            <!-- <div class="quiz-footer">
                 <button class="btn btn-primary" id="next-btn">Next</button>
-            </div>
+            </div> -->
             <p v-if="result !== null">{{ result }}</p>
+        </div>
+        <div v-else>
+            <h2>終了</h2>
         </div>
     </div>
 </template>
@@ -44,6 +48,8 @@
                 options: [],
                 answer: "",
                 result: null,
+                selectedOption: null,
+                questionCount: 0
             };
         },
         mounted() {
@@ -60,7 +66,6 @@
                     this.sicilian = response.data.sicilian;
                     this.options = response.data.options;
                     this.answer = response.data.answer;
-                    this.result = null;
                 })
                 .catch(error => {
                     console.error('APIエラー:', error);
@@ -68,13 +73,33 @@
             },
             // 回答を見て、正解か不正解を判断
             checkAnswer(option) {
+                this.selectedOption = option;
                 if(option === this.answer) {
                     this.result = "Raggiuni hai!";
+
                 } else {
                     this.result = "Scurrettu!";
                 }
+                this.disableOptions();
+            },
+            // 一度答えたら選択不可にする
+            disableOptions() {
+                const options = document.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.disabled = true;
+                });
+                this.nextQuestion();
+                options.forEach(option => {
+                option.disabled = false;
+                })
+            },
+            // 3秒経ったら次の問題を呼ぶ(全部で５回まで)
+            nextQuestion() {
+                setTimeout(() => {
+                    this.fetchQuiz();
+                }, "2000");
+                this.questionCount++;
             }
-
         }
     };
 </script>
@@ -113,16 +138,21 @@
         transition: all 0.3s ease;
         width: 100%;
     }
+    .option.correct {
+        background-color: #b0e0e6;
+        color: #333;
+        border-color: #b0e0e6;
+    }
+    .option.incorrect {
+        background-color: #FF2D20;
+        color: #fff;
+        border-color: #FF2D20;
+    }
     .quiz-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 30px;
-    }
-
-    .timer {
-        font-size: 1.2rem;
-        font-weight: bold;
     }
 
     .progress {
