@@ -1,6 +1,6 @@
 FROM php:8.1-fpm
 
-# パフォーマンス向上のためにapt-getをキャッシュクリア
+# システムパッケージのインストール
 RUN apt-get update && apt-get install -y \
     curl \
     zip \
@@ -15,8 +15,13 @@ RUN apt-get update && apt-get install -y \
 # Composerのインストール
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
+# ワーキングディレクトリを設定
+WORKDIR /var/www
+
 # 依存関係のファイルのみをコピー
 COPY composer.json composer.lock ./
+
+# Composer インストール
 RUN composer install --no-scripts --no-autoloader
 
 # アプリケーションファイルをコピー
@@ -26,8 +31,7 @@ RUN composer dump-autoload --optimize
 # Node.jsとNPMのインストール
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean
 
 # npmパッケージをインストール
 COPY package*.json ./
