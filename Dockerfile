@@ -1,58 +1,50 @@
-FROM php:8.2-fpm
+# ベースイメージとしてPHP 8.2-FPMアルパインを使用
+FROM php:8.2-fpm-alpine
 
 # システムパッケージのインストール
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add --no-cache \
     curl \
     zip \
     unzip \
     git \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev \
     libonig-dev \
-    libpq-dev \
-    && docker-php-ext-install pdo_pgsql mbstring \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    libzip-dev \
+    postgresql-dev \
+    nginx
+
+# PHP拡張機能のインストール
+RUN docker-php-ext-install pdo_pgsql mbstring zip gd
 
 # Composerのインストール
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # ワーキングディレクトリを設定
-WORKDIR /var/www
-
-# 依存関係のファイルのみをコピー
-COPY composer.json composer.lock ./
-
-# Composer インストール
-RUN composer install --no-scripts --no-autoloader --no-dev --optimize-autoloader
+WORKDIR /var/www/html
 
 # アプリケーションファイルをコピー
 COPY . .
-RUN composer dump-autoload --optimize
 
-# Node.jsとNPMのインストール
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs \
-    && apt-get clean
+# Composer インストール
+RUN composer install --no-scripts --no-dev --optimize-autoloader
+
+# Node.jsとnpmのインストール
+RUN apk add --no-cache nodejs npm
 
 # npmパッケージをインストール & Viteのビルド
-COPY package*.json ./
-RUN npm ci
-RUN npm run build
+RUN npm ci && npm run build
 
 # ストレージとキャッシュのパーミッション設定
-RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
-# 本番環境用の設定
-ENV PHP_OPCACHE_ENABLE=1
-ENV PHP_OPCACHE_ENABLE_CLI=1
-ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
+# Nginx設定ファイルのコピー
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Laravel 起動前に環境をリセット
-CMD php artisan migrate --force && \
-    php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan view:clear && \
-    php artisan serve --host=0.0.0.0 --port=8080
+# Nginxの起動
+CMD ["nginx", "-g", "daemon off;", "&&", "php-fpm"]
 
 # ポートを公開
-EXPOSE 8080
+EXPOSE 80 9000
