@@ -1,17 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import Quiz from './componens/Quiz.vue';
 
 const routes = [
-    {
-        path: '/',
-        name: 'App',
-        component: () => import('./components//App.vue')
-    }
+    // { path: '/', name: 'App', component: () => import('./components/App.vue') },
+    { path: '/', name: 'Home', component: () => import('./components/views/Home.vue') },
+    { path: '/quiz', name: 'Quiz', component: () => import('./components/views/Quiz.vue') }
 ]
-
-// const routes = [
-//     { path: '/', component: Quiz }
-// ]
 
 const router = createRouter({
     history: createWebHistory(),
