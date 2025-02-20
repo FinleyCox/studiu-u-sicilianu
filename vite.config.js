@@ -14,7 +14,7 @@ export default defineConfig({
         vue({
             template: {
                 transformAssetUrls: {
-                    base: null,
+                    base: null,  // 相対URLにする
                     includeAbsolute: false,
                 },
             },
@@ -25,7 +25,12 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
+    base: '/',  // ベースパスが正しいか確認
     server: {
-        https: true, // HTTPSを強制
+        https: true, // HTTPSを使用
+    },
+    build: {
+        // ビルドの際にHTTPSで提供されるように設定
+        assetsDir: 'assets', // もし必要なら、ビルド出力先の設定を調整
     },
 });
