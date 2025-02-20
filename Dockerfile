@@ -48,10 +48,10 @@ ENV PHP_OPCACHE_ENABLE_CLI=1
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 
 # Laravel 起動前に環境をリセット
-CMD php artisan config:clear && \
+CMD php artisan migrate --force && \
+    php artisan config:clear && \
     php artisan cache:clear && \
     php artisan view:clear && \
-    php artisan migrate --force && \
     php artisan serve --host=0.0.0.0 --port=8080
 
 # ポートを公開
