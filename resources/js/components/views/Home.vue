@@ -1,7 +1,13 @@
 <template>
     <nav class="nav flex-column custom-nav">
         <router-link class="nav-link" to="/quiz">
-            <i class="bi bi-question-circle"></i> Word Quiz
+            <i class="bi bi-question-circle">Word Quiz</i>
+        </router-link>
+        <router-link class="nav-link" to="/conjugation-essentials">
+            <i class="bi bi-question-circle">Conjugation</i>
+        </router-link>
+        <router-link class="nav-link" to="/phrases">
+            <i class="bi bi-question-circle">Phrases</i>
         </router-link>
     </nav>
 </template>
@@ -34,9 +40,10 @@ body {
     border-radius: 8px;
     transition: background 0.3s ease, transform 0.2s ease;
     display: flex;
-    align-items: center;
     text-decoration: none;
     letter-spacing: 0.5px;
+    border: 3px solid rgb(0, 0, 0);
+    margin-bottom: 15px;
 }
 
 .nav-link:hover {
@@ -44,7 +51,6 @@ body {
 }
 
 i {
-    margin-right: 10px;
     font-size: 24px;
 }
 </style>
