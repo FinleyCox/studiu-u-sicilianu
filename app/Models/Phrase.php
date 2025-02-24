@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Word extends Model
+class Phrase extends Model
 {
-    // ワード登録可能にする
+    // フレーズ登録可能にする
     protected $fillable = ['japanese', 'sicilian'];
 }
