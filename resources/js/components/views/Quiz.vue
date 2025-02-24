@@ -45,9 +45,20 @@
         <!-- 終了,結果、間違えた単語、もう一度 -->
         <div v-else>
             <h2>終了</h2>
-            <p v-if="result !== null">
-                {{ result }}
+            <p v-if="this.correct !== null || this.incorrect !== null">
+                結果<br>
+                正解：{{ this.correct }}
+                不正解：{{ this.incorrect }}
             </p>
+            <p>
+                間違えた言葉
+            </p>
+            <ul v-if="incorrectWords.length > 0">
+                <li v-for="word in incorrectWords" :key="incorrectWords">
+                    {{ word[0] }}:{{ word[1] }}
+                </li>
+            </ul>
+            <button type="button" @click="tryAgain()">もう一度挑戦する</button>
         </div>
     </div>
 </template>
@@ -65,6 +76,9 @@
                 selectedOption: null,
                 questionCount: 0,
                 questionTimes: 5,
+                correct: 0,
+                incorrect: 0,
+                incorrectWords: [],
             };
         },
         mounted() {
@@ -91,9 +105,11 @@
                 this.selectedOption = option;
                 if(option === this.answer) {
                     this.result = "Raggiuni hai!";
-
+                    this.correct++;
                 } else {
                     this.result = "Scurrettu!";
+                    this.incorrectWords.push([this.sicilian,this.answer]);
+                    this.incorrect++;
                 }
                 this.disableOptions();
             },
@@ -106,17 +122,23 @@
                 if(this.questionCount < this.questionTimes) {
                     this.nextQuestion();
                 }
-
                 options.forEach(option => {
                 option.disabled = false;
                 })
             },
-            // 3秒経ったら次の問題を呼ぶ
+            // １秒経ったら次の問題を呼ぶ
             nextQuestion() {
                 setTimeout(() => {
                     this.fetchQuiz();
-                }, "2000");
+                }, "1000");
                 this.questionCount++;
+            },
+            tryAgain() {
+                this.questionCount = 0;
+                this.correct = 0;
+                this.incorrect = 0;
+                this.incorrectWords = [];
+                this.fetchQuiz();
             }
         }
     };
@@ -177,19 +199,8 @@
         height: 10px;
         margin-bottom: 20px;
     }
-
-    .results {
-        text-align: center;
+    li {
+        list-style: none;
     }
 
-    .result-icon {
-        font-size: 4rem;
-        margin-bottom: 20px;
-    }
-
-    .score {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
 </style>
