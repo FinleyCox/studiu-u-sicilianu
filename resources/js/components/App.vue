@@ -3,7 +3,8 @@
         <h1>studiu u sicilianu</h1>
         <router-view></router-view>
     </div>
-    <div class="back">
+    <div v-if="$route.path !== '/login'" class="back">
+    <!-- <div class="back"> -->
         <router-link to="/">back</router-link>
     </div>
     <div class="footer">
@@ -29,6 +30,7 @@
         position: relative;
         padding: 1rem 2rem calc(1rem + 10px);
         background: #ffffff;
+        z-index: 5;
     }
 
     h1:before {
@@ -39,7 +41,8 @@
         height: 100%;
         content: '';
         border: 4px solid #000;
-        border-radius: 8px;;
+        border-radius: 8px;
+        z-index: 5;
     }
     .back {
         height: 50px;
