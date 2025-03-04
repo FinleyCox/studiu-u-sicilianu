@@ -7,5 +7,3 @@ use App\Http\Controllers\LoginController;
 Route::get('/{any}', function() {
     return view('app');
 })->where('any', '.*');
-
-Route::post('/login', [LoginController::class, 'login']);

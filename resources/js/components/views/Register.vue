@@ -4,28 +4,33 @@
         <div class="login-form">
         <form @submit.prevent="handleLogin">
             <div class="form-group">
-            <label for="email">メールアドレス</label>
-            <input
-                type="text"
-                id="email"
-                class="form-control"
-                v-model="form.email"
-            />
+                <label for="username">ユーザー名</label>
+                <input
+                    type="text"
+                    id="username"
+                    class="form-control"
+                    v-model="form.username"
+                />
             </div>
             <div class="form-group">
-            <label for="password">パスワード</label>
-            <input
-                type="password"
-                id="password"
-                class="form-control"
-                v-model="form.password"
-            />
+                <label for="email">メールアドレス</label>
+                <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    v-model="form.email"
+                />
             </div>
-
-            <p v-if="errorMsg">{{ errorMsg }}</p>
-
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    v-model="form.password"
+                />
+            </div>
             <div class="btn-group">
-            <button type="submit" class="btn btn-black">ログイン</button>
             <button type="button" class="btn btn-secondary" @click="register">登録</button>
             </div>
         </form>
@@ -38,44 +43,47 @@
 import axios from 'axios';
 
     export default {
-        name: 'Login',
+        name: 'Register',
         data() {
             return {
                 form: {
-                    email: '',
-                    password: ''
-                },
-                errorMsg:'',
+                username: '',
+                email: '',
+                password: '',
+                }
             };
         },
         methods: {
-            handleLogin() {
-                axios.post('/api/login', {
+            register() {
+                axios.post('/api/register', {
+                    username: this.form.username,
                     email: this.form.email,
                     password: this.form.password
                 })
                 .then(response => {
-                        if(response.data.login === true) {
-                            localStorage.setItem('token', response.data.token)
-                            // リダイレクト('/')へ
-                            this.$router.push('/');
+                        if(response.data.register === true) {
+                            // リダイレクト('/login')へ
+                            this.$router.push('/login');
                         } else {
-                            this.errorMsg = response.data.message;
+                            alert('登録に失敗しました');
                         }
                     })
                 .catch(error => {
-                    console.error('APIエラー（ログイン）:', error);
+                    console.error('APIエラー(ユーザー登録):', error);
                 });
-            },
-            // 登録画面へ遷移
-            register() {
-                this.$router.push('/register');
             }
-        }
-    };
+        },
+    }
 </script>
 
 <style scoped>
+  /* GoogleFontsのPoppins適用 */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
     .sidenav {
         height: 100%;
         width: 40%;

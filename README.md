@@ -29,5 +29,11 @@ Laravel（バックエンド）とVue.js（フロントエンド）を使用し�
 ## 📜 ライセンス
 MIT License
 
+## ドキュメント
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1ovTD7znV1XqixSXr8UnI19pqQkjbi0rQLd9pelbW6VQ/edit?usp=sharing)
+<!-- - [設計書]() -->
+
 ## 👤 作者
-https://github.com/FinleyCox
+Ai Nakajima(inter0370@gmail.com)
+- [GitHub](https://github.com/FinleyCox)
+

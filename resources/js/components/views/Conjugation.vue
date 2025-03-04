@@ -150,6 +150,7 @@
 
 <style scoped>
     .table-container {
+        background-color: #fff;
         display: flex;
         justify-content: space-around;
     }

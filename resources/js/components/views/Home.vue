@@ -1,20 +1,35 @@
 <template>
     <nav class="nav flex-column custom-nav">
         <router-link class="nav-link" to="/quiz">
-            <i class="bi bi-question-circle">Word Quiz</i>
+            <i class="bi bi-question-circle"> Word Quiz</i>
         </router-link>
         <router-link class="nav-link" to="/conjugation-essentials">
-            <i class="bi bi-question-circle">Conjugation</i>
+            <i class="bi bi-book"> Conjugation</i>
         </router-link>
         <router-link class="nav-link" to="/phrases">
-            <i class="bi bi-question-circle">Phrases</i>
+            <i class="bi bi-pencil-square"> Phrases</i>
+        </router-link>
+        <router-link v-if="isLoggedin" class="nav-link" to="/user-menu">
+            <i class="bi bi-person"> UserMenu</i>
         </router-link>
     </nav>
 </template>
 
 <script>
 export default {
-    name: "Home"
+    name: "Home",
+    data() {
+        return {
+            isLoggedin: false, // ユーザーメニュー表示に使用
+        }
+    },
+    mounted() {
+        // トークンがあればユーザーメニューをtrueにして表示させる
+        const token = localStorage.getItem('token');
+        if(token) {
+            this.isLoggedin = true;
+        }
+    }
 }
 </script>
 

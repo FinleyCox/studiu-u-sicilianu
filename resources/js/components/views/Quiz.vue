@@ -1,26 +1,17 @@
 <template>
-    <!-- TODO:
-        終了画面にリザルト、間違えたワード一覧
-        もう一度やるボタンでカウントリセットしてfetchquiz
-    -->
     <div class="container">
-        <!-- <div v-if="questionCount < 5" class="quiz-container" id="quiz"> -->
         <div v-if="questionCount < questionTimes" class="quiz-container" id="quiz">
             <div class="quiz-header">
                 <h2>word quiz</h2>
                 <!-- クイズ進行状況 ここから-->
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar">
-                            <p>
-                                <select v-model="questionTimes" class="form-select form-select-lg mb-3" aria-label=".form-select-lg">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                    <option value="15">15</option>
-                                    <option value="20">20</option>
-                                </select>
-                                出題数: {{ questionCount }} / {{ questionTimes }}
-                            </p>
-                        </div>
+                    <div class="options">
+                        <select v-model="questionTimes" class="form-select form-select-lg mb-3" aria-label=".form-select-lg">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                        出題数: {{ questionCount }} / {{ questionTimes }}
                     </div>
                 <!-- クイズ進行状況 ここまで-->
             </div>
@@ -152,6 +143,7 @@
         padding: 30px;
         max-width: 600px;
         width: 100%;
+        height: 100%;
         margin: auto;
     }
 
