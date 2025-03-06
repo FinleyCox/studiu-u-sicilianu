@@ -1,36 +1,36 @@
 <template>
     <div class="main">
-    <div class="col-md-6 col-sm-12">
-        <div class="login-form">
-        <form @submit.prevent="handleLogin">
-            <div class="form-group">
-            <label for="email">メールアドレス</label>
-            <input
-                type="text"
-                id="email"
-                class="form-control"
-                v-model="form.email"
-            />
-            </div>
-            <div class="form-group">
-            <label for="password">パスワード</label>
-            <input
-                type="password"
-                id="password"
-                class="form-control"
-                v-model="form.password"
-            />
-            </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+            <form @submit.prevent="handleLogin">
+                <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input
+                    type="text"
+                    id="email"
+                    class="form-control"
+                    v-model="form.email"
+                />
+                </div>
+                <div class="form-group">
+                <label for="password">パスワード</label>
+                <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    v-model="form.password"
+                />
+                </div>
 
-            <p v-if="errorMsg">{{ errorMsg }}</p>
+                <p v-if="errorMsg">{{ errorMsg }}</p>
 
-            <div class="btn-group">
-            <button type="submit" class="btn btn-black">ログイン</button>
-            <button type="button" class="btn btn-secondary" @click="register">登録</button>
+                <div class="btn-group">
+                <button type="submit" class="btn btn-black">ログイン</button>
+                <button type="button" class="btn btn-secondary" @click="register">登録</button>
+                </div>
+            </form>
             </div>
-        </form>
         </div>
-    </div>
     </div>
 </template>
 
@@ -56,9 +56,11 @@ import axios from 'axios';
                 })
                 .then(response => {
                         if(response.data.login === true) {
+                            // console.log(response);
                             localStorage.setItem('token', response.data.token)
-                            // リダイレクト('/')へ
-                            this.$router.push('/');
+                            localStorage.setItem('username', response.data.username)
+                            // リダイレクト('/')へ:pushだと画面追加になるので履歴には残さない
+                            window.location.href = '/'
                         } else {
                             this.errorMsg = response.data.message;
                         }
@@ -89,7 +91,7 @@ import axios from 'axios';
     }
 
     .main {
-        margin-left: 42%;
+        margin-left: 35%;
         padding: 20px;
         width: 58%;
     }

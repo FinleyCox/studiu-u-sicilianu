@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        \Log::info($request->all());
+        // \Log::info($request->all());
         $validated = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string|max:255',
@@ -24,12 +24,30 @@ class LoginController extends Controller
         }
 
         $token = $user->createToken('studiu-u-sicilianu')->plainTextToken;
-
+        $username = $user['name'];
 
         return response()->json([
             'message' => 'ログインしました',
             'login' => true,
             'token' => $token,
+            'username' => $username,
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $user = $request->user();
+        if($user) {
+            $user->tokens()->delete();
+            return response()->json([
+                'message' => 'ログアウトしました',
+                'logout' => true,
+            ]);
+        }
+        return response()->json([
+            'message' => '未認証のユーザーです',
+            'logout' => false,
+        ], 401);
+
     }
 }
