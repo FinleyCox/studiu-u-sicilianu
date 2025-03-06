@@ -7,6 +7,7 @@ const routes = [
     { path: '/user-menu', name: 'UserMenu', component: () => import('./components/views/UserMenu.vue') },
     { path: '/login', name: 'Login', component: () => import('./components/views/Login.vue') },
     { path: '/register', name: 'Register', component: () => import('./components/views/Register.vue') },
+    { path: '/side-user-menu', name: 'SideUserMenu', component: () => import('./components/views/SideUserMenu.vue') },
 
 ]
 

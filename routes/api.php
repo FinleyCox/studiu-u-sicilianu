@@ -9,6 +9,7 @@ use App\Http\Controllers\QuizController;
 use App\Models\Word;
 
 Route::post('/login', [LoginController::class, 'login']);
+Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/quiz', [QuizController::class, 'index']);
 
