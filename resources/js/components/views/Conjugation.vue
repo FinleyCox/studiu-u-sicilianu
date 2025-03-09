@@ -51,7 +51,7 @@
                 </tbody>
             </table>
             <div class="usage-container">
-                <p style="font-weight: bold">usage</p>
+                <p style="font-weight: bold">使用方法</p>
                 <p>io maciu, tu manci</p>
                 <p>nui pigghiamu, iddi pigghiunu</p>
             </div>
@@ -93,7 +93,7 @@
                 </tbody>
             </table>
             <div class="usage-container">
-                <p style="font-weight: bold">usage</p>
+                <p style="font-weight: bold">使用方法</p>
                 <p>Comu vaju?</p>
                 <p>Vennerdi vaju a Palermu</p>
             </div>
@@ -135,7 +135,7 @@
                 </tbody>
             </table>
             <div class="usage-container">
-                <p style="font-weight: bold">usage</p>
+                <p style="font-weight: bold">使用方法</p>
                 <p>Quanti anni hai? </p>
                 <p>Aiu 28(vinti ottu) hanni</p>
             </div>

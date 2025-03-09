@@ -3,6 +3,9 @@
         TODO:
         ・復習ワード機能(間違えたワード)
         ・フレーズ
+        ・単語ページ、カテゴリ
+        ・単語ページ作成。クリック内容によって取得データを異なるものを取得して描画
+        ・お気に入り機能
     -->
     <div class="header">
         <p>studiu u sicilianu</p>
@@ -22,8 +25,10 @@
         <router-link class="back-text" to="/"><i class="bi bi-arrow-left-circle">BACK</i></router-link>
     </div>
     <div class="footer">
-        <div class="text-center p-4" style="background-color: rgb(203, 201, 201);">
-            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">🐕created by Ai Nakajima🐕</a>
+        <div class="text-left p-4">
+            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by Ai Nakajima</a> 👈Click to GitHub<br>
+            <a class="text-reset fw-bold footer-a" href="https://qiita.com/_anonymous_dog_" target="_blank">@_anonymous_dog_</a> 👈Cliick to my Qiita account<br>
+            <p><a class="text-reset fw-bold footer-a" href="javascript:void(0)">inter0370@gmail.com</a> 👈For Contanct</p>
         </div>
     </div>
 </template>
@@ -45,27 +50,20 @@
         },
         data() {
             return {
-                // isMenu: false,
                 isLoggedin: false, // ユーザーメニュー表示に使用
                 username: '',
             }
-        },
-        methods: {
-            // showMenu() {
-            //     this.isMenu = !this.isMenu;
-            // },
         },
     }
 </script>
 
 <style>
-    /* GoogleFontsのPoppins適用 */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
     body {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Merriweather', sans-serif;
     }
     .header {
-        margin-top: 20px;
         text-align: center;
         display: block; /* 固定 */
         font-size: 40px;
@@ -89,20 +87,17 @@
         text-decoration: none;
     }
     .footer {
-        height: 100px;
         width: 100%; /* 横幅いっぱいにする */
-        background-color: rgb(203, 201, 201);
+        background-color: rgb(243, 240, 240);
         display: flex;
         align-items: center; /* テキストを中央配置 */
         justify-content: center;
         position: fixed; /* 固定 */
         bottom: 0; /* 画面下部に配置 */
-        z-index: 3;
+        z-index: -1;
     }
     .footer-a {
         text-decoration: none;
-        background-color: rgb(203, 201, 201);
-        color: #ffffff;
     }
     .sidenav {
         height: 100%;
