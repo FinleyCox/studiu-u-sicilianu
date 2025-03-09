@@ -1,13 +1,16 @@
 <template>
-    <div>
+    <div class="side-user-menu-container">
         <div v-for="(item, index) in lists" :key="index">
             <router-link :to="item.route" class="menu-item">
                 {{ item.name }}
             </router-link>
         </div>
         <!-- logoutは別で追加 -->
-        <div v-if="isLoggedin === true" type="button" class="menu-item" @click="logout()">logout</div>
-        <div v-else type="button" class="menu-item" @click="loginOrRegister()">login / register</div>
+        <div v-if="isLoggedin === true">
+            <div type="button" class="menu-item" @click="favourites">お気に入り</div>
+            <div type="button" class="menu-item" @click="logout()">ログアウト</div>
+        </div>
+        <div v-else type="button" class="menu-item" @click="loginOrRegister()">ログイン / 登録</div>
     </div>
 </template>
 
@@ -23,10 +26,10 @@
         data() {
             return {
                 lists: [
-                    { name:'home', route: '/' },
-                    { name:'quiz', route: '/quiz' },
-                    { name:'conjugation', route: '/conjugation-essentials' },
-                    { name:'phrases', route: '/phrases' },
+                    { name:'ホーム', route: '/' },
+                    { name:'クイズ', route: '/quiz' },
+                    { name:'動詞の活用', route: '/conjugation-essentials' },
+                    { name:'フレーズ', route: '/phrases' },
                 ],
                 isLoggedin: false,
             }
@@ -56,6 +59,9 @@
             loginOrRegister() {
                 this.$router.push('/login');
             },
+            favourites() {
+                this.$router.push('/favourites');
+            }
         }
     }
 </script>
