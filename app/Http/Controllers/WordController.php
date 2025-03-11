@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Word;
 use Illuminate\Http\Request;
 
 class WordController extends Controller
@@ -9,9 +10,16 @@ class WordController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        \Log::info('HERE');
         // wordテーブルから全て持ってくる
+        $categoryNum = $request->input('category');
+        $words = Word::where('category', $categoryNum)->get();
+        // foreach($words as $word) {
+        //     \Log::info($word);
+        // }
+        return response()->json($words);
     }
 
     /**

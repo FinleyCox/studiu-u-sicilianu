@@ -10,6 +10,7 @@ const routes = [
     { path: '/side-user-menu', name: 'SideUserMenu', component: () => import('./components/views/SideUserMenu.vue') },
     { path: '/favourites', name: 'Favourites', component: () => import('./components/views/Favourites.vue') },
     { path: '/words', name: 'Words', component: () => import('./components/views/Words.vue') },
+    { path: '/words-contains', name: 'WordsContains', component: () => import('./components/views/WordsContains.vue') },
     // { path: '/phrases', name: 'Phrases', component: () => import('./components/views/Phrases.vue') },
 
 ]

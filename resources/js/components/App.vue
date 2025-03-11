@@ -25,7 +25,7 @@
         <router-link class="back-text" to="/"><i class="bi bi-arrow-left-circle">BACK</i></router-link>
     </div>
     <div class="footer">
-        <div class="text-left p-4">
+        <div class="text-left">
             <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by Ai Nakajima</a> 👈Click to GitHub<br>
             <a class="text-reset fw-bold footer-a" href="https://qiita.com/_anonymous_dog_" target="_blank">@_anonymous_dog_</a> 👈Cliick to my Qiita account<br>
             <p><a class="text-reset fw-bold footer-a" href="javascript:void(0)">inter0370@gmail.com</a> 👈For Contanct</p>
@@ -90,13 +90,14 @@
         width: 100%; /* 横幅いっぱいにする */
         background-color: rgb(243, 240, 240);
         display: flex;
-        align-items: center; /* テキストを中央配置 */
         justify-content: center;
         position: fixed; /* 固定 */
         bottom: 0; /* 画面下部に配置 */
         z-index: -1;
     }
-    .footer-a {
+    .text-left {
+        padding-top: 12px;
+        font-size: 12px;
         text-decoration: none;
     }
     .sidenav {
