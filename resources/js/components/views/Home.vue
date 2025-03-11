@@ -9,9 +9,9 @@
         <router-link class="nav-link" to="/words">
             <i class="bi bi-pencil"> 単語</i>
         </router-link>
-        <router-link class="nav-link" to="/phrases">
+        <!-- <router-link class="nav-link" to="/phrases">
             <i class="bi bi-pencil-square"> フレーズ</i>
-        </router-link>
+        </router-link> -->
         <router-link v-if="isLoggedin" class="nav-link" to="/user-menu">
             <i class="bi bi-person"> ユーザーメニュー</i>
         </router-link>

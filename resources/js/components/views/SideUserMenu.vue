@@ -29,7 +29,8 @@
                     { name:'ホーム', route: '/' },
                     { name:'クイズ', route: '/quiz' },
                     { name:'動詞の活用', route: '/conjugation-essentials' },
-                    { name:'フレーズ', route: '/phrases' },
+                    { name:'単語', route: '/words' },
+                    // { name:'フレーズ', route: '/phrases' },
                 ],
                 isLoggedin: false,
             }
