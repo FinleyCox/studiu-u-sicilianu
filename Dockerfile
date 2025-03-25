@@ -12,6 +12,18 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_pgsql mbstring \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+    
+# PHP-FPMの設定
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm.sock/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.owner = www-data/listen.owner = www-data/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.group = www-data/listen.group = www-data/g' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.mode = 0660/listen.mode = 0660/g' /usr/local/etc/php-fpm.d/www.conf
+
+# ログディレクトリの作成
+RUN mkdir -p /var/log/nginx && \
+    touch /var/log/nginx/error.log && \
+    touch /var/log/nginx/access.log && \
+    chown -R www-data:www-data /var/log/nginx
 
 # Composerのインストール
 COPY --from=composer /usr/bin/composer /usr/bin/composer
