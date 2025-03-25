@@ -1,56 +1,54 @@
 <template>
-    <div class="container">
-        <div v-if="questionCount < questionTimes" class="quiz-container" id="quiz">
-            <div class="quiz-header">
-                <h2>word quiz</h2>
-                <!-- クイズ進行状況 ここから-->
-                    <div class="options">
-                        <select v-model="questionTimes" class="form-select form-select-lg mb-3" aria-label=".form-select-lg">
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                        </select>
-                        出題数: {{ questionCount }} / {{ questionTimes }}
-                    </div>
-                <!-- クイズ進行状況 ここまで-->
-            </div>
-            <!-- クイズ ここから -->
-                <div id="question-container">
-                    <p class="question" id="question">
-                        {{ sicilian }}
-                    </p>
-                    <div class="options">
-                        <button
-                            v-for="option in options" :key="option"
-                            :class="['option', 'btn', 'btn-outline-secondary', selectedOption === option ? (option === answer ? 'correct' : 'incorrect') : '']"
-                            @click="checkAnswer(option)
-
-                        ">
-                            {{ option }}
-                        </button>
-                    </div>
+    <div v-if="questionCount < questionTimes" class="quiz-container" id="quiz">
+        <div class="quiz-header">
+            <h2>word quiz</h2>
+            <!-- クイズ進行状況 ここから-->
+                <div class="options">
+                    <select v-model="questionTimes" class="form-select form-select-lg mb-3 select" aria-label=".form-select-lg">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                    出題数: {{ questionCount }} / {{ questionTimes }}
                 </div>
-            <!-- クイズ ここまで -->
+            <!-- クイズ進行状況 ここまで-->
         </div>
-        <!-- 終了,結果、間違えた単語、もう一度 -->
-        <div v-else>
-            <h2>終了</h2>
-            <p v-if="this.correct !== null || this.incorrect !== null">
-                結果<br>
-                正解：{{ this.correct }}
-                不正解：{{ this.incorrect }}
-            </p>
-            <p>
-                間違えた言葉
-            </p>
-            <ul v-if="incorrectWords.length > 0">
-                <li v-for="word in incorrectWords" :key="incorrectWords">
-                    {{ word[0] }}:{{ word[1] }}
-                </li>
-            </ul>
-            <button type="button" @click="tryAgain()">もう一度挑戦する</button>
-        </div>
+        <!-- クイズ ここから -->
+            <div id="question-container">
+                <p class="question" id="question">
+                    {{ sicilian }}
+                </p>
+                <div class="options">
+                    <button
+                        v-for="option in options" :key="option"
+                        :class="['option', 'btn', 'btn-outline-secondary', selectedOption === option ? (option === answer ? 'correct' : 'incorrect') : '']"
+                        @click="checkAnswer(option)
+
+                    ">
+                        {{ option }}
+                    </button>
+                </div>
+            </div>
+        <!-- クイズ ここまで -->
+    </div>
+    <!-- 終了,結果、間違えた単語、もう一度 -->
+    <div v-else>
+        <h2>終了</h2>
+        <p v-if="this.correct !== null || this.incorrect !== null">
+            結果<br>
+            正解：{{ this.correct }}
+            不正解：{{ this.incorrect }}
+        </p>
+        <p>
+            間違えた言葉
+        </p>
+        <ul v-if="incorrectWords.length > 0">
+            <li v-for="word in incorrectWords" :key="incorrectWords">
+                {{ word[0] }}:{{ word[1] }}
+            </li>
+        </ul>
+        <button type="button" @click="tryAgain()">もう一度挑戦する</button>
     </div>
 </template>
 
@@ -137,14 +135,11 @@
 
 <style scoped>
     .quiz-container {
-        background-color: white;
         border-radius: 15px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         padding: 30px;
-        max-width: 600px;
         width: 100%;
         height: 100%;
-        margin: auto;
     }
 
     .quiz-header {
@@ -155,6 +150,10 @@
     .question {
         font-size: 1.2rem;
         margin-bottom: 20px;
+    }
+
+    .select {
+        text-align: center;
     }
 
     .options {
@@ -180,17 +179,7 @@
         color: #fff;
         border-color: #FF2D20;
     }
-    .quiz-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 30px;
-    }
 
-    .progress {
-        height: 10px;
-        margin-bottom: 20px;
-    }
     li {
         list-style: none;
     }

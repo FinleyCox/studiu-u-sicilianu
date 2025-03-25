@@ -31,6 +31,7 @@ class LoginController extends Controller
             'login' => true,
             'token' => $token,
             'username' => $username,
+            'userId' => $user->id,
         ]);
     }
 

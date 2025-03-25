@@ -59,6 +59,7 @@ import axios from 'axios';
                             // console.log(response);
                             localStorage.setItem('token', response.data.token)
                             localStorage.setItem('username', response.data.username)
+                            localStorage.setItem('userId', response.data.userId)
                             // リダイレクト('/')へ:pushだと画面追加になるので履歴には残さない
                             window.location.href = '/'
                         } else {
