@@ -26,6 +26,11 @@
     import WordsContains from './WordsContains.vue';
     export default {
         name: 'Words',
+        data() {
+            return {
+                userId: localStorage.getItem('userId')
+            }
+        },
         components: {
             WordsContains
         },
@@ -33,7 +38,7 @@
             goToWordsContains(categoryNum) {
                 this.$router.push({
                     path: 'words-contains',
-                    query: {category: categoryNum}
+                    query: {category: categoryNum, userId: this.userId}
                 })
             }
         }

@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "vite": "^5.4.14",
-        "vue-router": "^4.5.0"
+        "vue-router": "^4.5.0",
+        "vue-toast-notification": "^3.1.3"
     }
 }

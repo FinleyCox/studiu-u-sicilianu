@@ -3,9 +3,6 @@
         TODO:
         ・復習ワード機能(間違えたワード)
         ・フレーズ
-        ・単語ページ、カテゴリ
-        ・単語ページ作成。クリック内容によって取得データを異なるものを取得して描画
-        ・お気に入り機能
     -->
     <div class="header">
         <p>studiu u sicilianu</p>
@@ -44,6 +41,7 @@
             // トークンがあればユーザーメニューをtrueにして表示させる
             const token = localStorage.getItem('token');
             this.username = localStorage.getItem('username');
+            this.userId = localStorage.getItem('userId');
             if(token) {
                 this.isLoggedin = true;
             }
@@ -52,6 +50,7 @@
             return {
                 isLoggedin: false, // ユーザーメニュー表示に使用
                 username: '',
+                userId: '',
             }
         },
     }
@@ -71,6 +70,7 @@
     .container {
         height: 100%;
         width: 70%;
+        margin-left: 250px;
         text-align: center;
         background-color: linear-gradient(135deg, #eeecf1, #e7eaf0);
         display: block;
