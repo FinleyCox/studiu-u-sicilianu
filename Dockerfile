@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     git \
     libonig-dev \
     libpq-dev \
+    nginx \
     && docker-php-ext-install pdo_pgsql mbstring \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -38,6 +39,9 @@ COPY package*.json ./
 RUN npm ci
 RUN npm run build
 
+# Nginxの設定ファイルをコピー
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # ストレージとキャッシュのパーミッション設定
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
@@ -47,12 +51,14 @@ ENV PHP_OPCACHE_ENABLE=1
 ENV PHP_OPCACHE_ENABLE_CLI=1
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 
-# Laravel 起動前に環境をリセット
-CMD php artisan migrate --force && \
-    php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan view:clear && \
-    php artisan serve --host=0.0.0.0 --port=8080
+# 環境設定
+RUN cp .env.example .env
+RUN php artisan key:generate
 
-# ポートを公開
-EXPOSE 8080
+# 起動スクリプトの作成
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+CMD ["/usr/local/bin/start.sh"]
+
+EXPOSE 80
