@@ -99,35 +99,24 @@ class WordController extends Controller
         }
         return response()->json($response);
     }
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // お気に入り取得
+    public function getFavourites(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $userId = $request->input('userId');
+        $favourites = Favourite::where('user_id', $userId)->get();
+        $words = Word::whereIn('id', $favourites->pluck('word_id'))->get();
+        // \Log::info($words);
+        if($favourites) {
+            $response = [
+                'success' => true,
+                'favourites' => $words
+            ];
+        } else {
+            $response = [
+                'success' => false,
+                'message' => 'お気に入り取得に失敗しました'
+            ];
+        }
+        return response()->json($response);
     }
 }

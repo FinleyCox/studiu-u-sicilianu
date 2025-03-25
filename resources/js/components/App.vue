@@ -23,7 +23,7 @@
     </div>
     <div class="footer">
         <div class="text-left">
-            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by Ai Nakajima</a> 👈Click to GitHub<br>
+            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by AiN</a> 👈Click to GitHub<br>
             <a class="text-reset fw-bold footer-a" href="https://qiita.com/_anonymous_dog_" target="_blank">@_anonymous_dog_</a> 👈Cliick to my Qiita account<br>
             <p><a class="text-reset fw-bold footer-a" href="javascript:void(0)">inter0370@gmail.com</a> 👈For Contanct</p>
         </div>
