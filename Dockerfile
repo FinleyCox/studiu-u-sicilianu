@@ -17,8 +17,12 @@ COPY . .
 # PHP依存をインストール
 RUN composer install
 
+
 # Node依存もインストール＆ビルド
 RUN npm install && npm run build
+
+# .env.example → .env
+RUN cp .env.example .env
 
 # LaravelのAPP_KEY生成（初回のみ）
 RUN php artisan key:generate || true
