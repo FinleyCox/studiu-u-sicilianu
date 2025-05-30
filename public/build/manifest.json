@@ -1,0 +1,145 @@
+{
+  "_nav-COGYXxgm.css": {
+    "file": "assets/nav-COGYXxgm.css",
+    "src": "_nav-COGYXxgm.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CprNzg69.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/components/views/Home.vue",
+      "resources/js/components/views/Quiz.vue",
+      "resources/js/components/views/Conjugation.vue",
+      "resources/js/components/views/UserMenu.vue",
+      "resources/js/components/views/Login.vue",
+      "resources/js/components/views/Register.vue",
+      "resources/js/components/views/Favourites.vue",
+      "resources/js/components/views/Words.vue",
+      "resources/js/components/views/WordsContains.vue",
+      "resources/js/components/views/ForgotPassword.vue"
+    ],
+    "css": [
+      "assets/app-Dh2Z414C.css"
+    ]
+  },
+  "resources/js/components/views/Conjugation.vue": {
+    "file": "assets/Conjugation-uBq55H8C.js",
+    "name": "Conjugation",
+    "src": "resources/js/components/views/Conjugation.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Conjugation-9cBhy__p.css"
+    ]
+  },
+  "resources/js/components/views/Favourites.vue": {
+    "file": "assets/Favourites-fQJBsSkd.js",
+    "name": "Favourites",
+    "src": "resources/js/components/views/Favourites.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/components/views/ForgotPassword.vue": {
+    "file": "assets/ForgotPassword-CISUu3e4.js",
+    "name": "ForgotPassword",
+    "src": "resources/js/components/views/ForgotPassword.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/components/views/Home.vue": {
+    "file": "assets/Home-D4_D2c93.js",
+    "name": "Home",
+    "src": "resources/js/components/views/Home.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Home-CXqchk44.css",
+      "assets/nav-COGYXxgm.css"
+    ]
+  },
+  "resources/js/components/views/Login.vue": {
+    "file": "assets/Login-CuVJBn8c.js",
+    "name": "Login",
+    "src": "resources/js/components/views/Login.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Login-GOad4Yi5.css"
+    ]
+  },
+  "resources/js/components/views/Quiz.vue": {
+    "file": "assets/Quiz-DdYmNcOL.js",
+    "name": "Quiz",
+    "src": "resources/js/components/views/Quiz.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Quiz-Bn5ZcDO6.css"
+    ]
+  },
+  "resources/js/components/views/Register.vue": {
+    "file": "assets/Register-Dve6vAvf.js",
+    "name": "Register",
+    "src": "resources/js/components/views/Register.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/Register-B3yg_HwX.css"
+    ]
+  },
+  "resources/js/components/views/UserMenu.vue": {
+    "file": "assets/UserMenu-CcLatz6f.js",
+    "name": "UserMenu",
+    "src": "resources/js/components/views/UserMenu.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/components/views/Words.vue": {
+    "file": "assets/Words-DZU1z-KR.js",
+    "name": "Words",
+    "src": "resources/js/components/views/Words.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/components/views/WordsContains.vue",
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/nav-COGYXxgm.css"
+    ]
+  },
+  "resources/js/components/views/WordsContains.vue": {
+    "file": "assets/WordsContains-CHZ1gokx.js",
+    "name": "WordsContains",
+    "src": "resources/js/components/views/WordsContains.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/WordsContains-CBGLD2K_.css"
+    ]
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-BaVMVknW.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
