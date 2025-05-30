@@ -27,5 +27,16 @@ RUN cp .env.example .env
 # LaravelのAPP_KEY生成（初回のみ）
 RUN php artisan key:generate || true
 
+# Laravelキャッシュクリア
+RUN php artisan config:clear
+RUN php artisan route:clear
+RUN php artisan view:clear
+
+# Laravelマイグレーション（必要なら）
+RUN php artisan migrate --force || true
+
+# 権限設定
+RUN chmod -R 777 storage bootstrap/cache
+
 # サーバー起動
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
