@@ -10,7 +10,6 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        // \Log::info($request->all());
         $validated = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string|max:255',
@@ -50,5 +49,51 @@ class LoginController extends Controller
             'logout' => false,
         ], 401);
 
+    }
+
+    // パスワード再設定
+    public function resetPassword(Request $request)
+    {
+        // メールアドレスと新しいパスワードを受け取る
+        $email = $request->input('email');
+        $newPassword = $request->input('password');
+        try {
+            // email, パスワードの形式が正しいかどうか
+            $validated = $request->validate([
+                'email' => 'required|string|email',
+                'password' => 'required|string|max:255',
+            ]);
+            if(!$validated) {
+                $response = [
+                    'success' => false,
+                    'message' => 'メールアドレスまたはパスワードの形式が違います'
+                ];
+            }
+            // ユーザーの特定
+            $user = User::where('email', '=', $email)->first();
+            if($user) {
+                // パスワードの更新
+                $user->password = Hash::make($newPassword);
+                $user->save();
+                $response = [
+                    'success' => true,
+                    'message' => 'パスワードの更新に成功しました'
+                ];
+            } else {
+                $response = [
+                    'success' => false,
+                    'message' => '登録されていないユーザーです'
+                ];
+            }
+        } catch(\Exception $e) {
+            \Log::debug($e);
+            $response = [
+                'success' => false,
+                'message' => 'パスワードの更新に失敗しました'
+            ];
+        }
+
+        // 結果を返す
+        return response()->json($response);
     }
 }

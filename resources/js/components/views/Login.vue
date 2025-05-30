@@ -1,32 +1,38 @@
 <template>
+    <!-- TODO:ログインボタンとかの幅 -->
     <div class="main">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-12">
             <div class="login-form">
             <form @submit.prevent="handleLogin">
                 <div class="form-group">
-                <label for="email">メールアドレス</label>
-                <input
-                    type="text"
-                    id="email"
-                    class="form-control"
-                    v-model="form.email"
-                />
+                    <label for="email">メールアドレス</label>
+                    <input
+                        type="text"
+                        id="email"
+                        class="form-control"
+                        v-model="form.email"
+                    />
                 </div>
                 <div class="form-group">
-                <label for="password">パスワード</label>
-                <input
-                    type="password"
-                    id="password"
-                    class="form-control"
-                    v-model="form.password"
-                />
+                    <label for="password">パスワード</label>
+                    <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        v-model="form.password"
+                    />
                 </div>
 
                 <p v-if="errorMsg">{{ errorMsg }}</p>
-
-                <div class="btn-group">
-                <button type="submit" class="btn btn-black">ログイン</button>
-                <button type="button" class="btn btn-secondary" @click="register">登録</button>
+                <div class="row">
+                    <!-- <div class="btn-group mt-2"> -->
+                        <button type="submit" class="btn btn-info mt-2">ログイン</button>
+                        <button type="button" class="btn btn-secondary mt-2" @click="register">登録</button>
+                    <!-- </div> -->
+                    <div class="btn-group mt-2">
+                        <a class="mt-2" style="color: black;" onclick="location.href='/'">ログインせずに使用する</a>　または　
+                        <a class="mt-2" style="color: black;"  @click="forgotPassword">メールアドレスをわすれた</a>
+                    </div>
                 </div>
             </form>
             </div>
@@ -56,7 +62,6 @@ import axios from 'axios';
                 })
                 .then(response => {
                         if(response.data.login === true) {
-                            // console.log(response);
                             localStorage.setItem('token', response.data.token)
                             localStorage.setItem('username', response.data.username)
                             localStorage.setItem('userId', response.data.userId)
@@ -67,12 +72,19 @@ import axios from 'axios';
                         }
                     })
                 .catch(error => {
-                    console.error('APIエラー（ログイン）:', error);
+                    if(error.response && error.response.status == 422) {
+                        this.errorMsg = 'メールアドレスまたはパスワードが入力されていません';
+                    } else {
+                        console.error('APIエラー（ログイン）:', error);
+                    }
                 });
             },
             // 登録画面へ遷移
             register() {
                 this.$router.push('/register');
+            },
+            forgotPassword() {
+                this.$router.push('/forgot-password');
             }
         }
     };
@@ -92,7 +104,7 @@ import axios from 'axios';
     }
 
     .main {
-        margin-left: 35%;
+        margin-left: 20%;
         padding: 20px;
         width: 58%;
     }

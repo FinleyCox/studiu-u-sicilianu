@@ -13,6 +13,7 @@ Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'log
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/quiz', [QuizController::class, 'index']);
 Route::get('/words-contains', [WordController::class, 'index']);
+Route::post('/resetpassword', [LoginController::class, 'resetPassword']);
 
 // お気に入り関連
 Route::post('/words-contains/add-favourite', [WordController::class, 'addFavourite']);
