@@ -12,6 +12,7 @@ const routes = [
     { path: '/words', name: 'Words', component: () => import('./components/views/Words.vue') },
     { path: '/words-contains', name: 'WordsContains', component: () => import('./components/views/WordsContains.vue') },
     // { path: '/phrases', name: 'Phrases', component: () => import('./components/views/Phrases.vue') },
+    { path: '/forgot-password', name: 'ForgotPassword', component: () => import('./components/views/Forgotpassword.vue') },
 
 ]
 
