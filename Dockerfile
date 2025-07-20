@@ -17,16 +17,13 @@ RUN apt-get install -y \
 # 作業ディレクトリ
 WORKDIR /app
 
-# composer.jsonとpackage.jsonを先にコピー（キャッシュ効率化）
-COPY composer.json composer.lock ./
-COPY package.json package-lock.json ./
-
-# 依存関係をインストール
-RUN composer install --no-dev --optimize-autoloader
-RUN npm ci --only=production
-
 # ソースコードをコピー
 COPY . .
+
+# 依存関係をインストール
+RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer dump-autoload --optimize
+RUN npm ci --only=production
 
 # フロントエンドをビルド
 RUN npm run build
@@ -49,6 +46,7 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 # マイグレーション用のスクリプトを作成
 RUN echo '#!/bin/bash\n\
 php artisan migrate --force\n\
+php artisan db:seed --force\n\
 php-fpm' > /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
 # ポート設定
