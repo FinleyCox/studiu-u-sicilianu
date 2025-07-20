@@ -1,44 +1,58 @@
 # PHPイメージ
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
 # Node.jsをインストール
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs unzip git
+    apt-get update && apt-get install -y nodejs unzip git nginx
 
 # Composerをインストール
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# PostgreSQLドライバのビルドに必要なライブラリをインストール
-RUN apt-get update && apt-get install -y libpq-dev
-
-# PostgreSQLドライバをインストール
-RUN docker-php-ext-install pdo pdo_pgsql
+# 必要なPHP拡張をインストール
+RUN apt-get install -y \
+    libpq-dev \
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_pgsql pdo_mysql zip
 
 # 作業ディレクトリ
 WORKDIR /app
 
+# composer.jsonとpackage.jsonを先にコピー（キャッシュ効率化）
+COPY composer.json composer.lock ./
+COPY package.json package-lock.json ./
+
+# 依存関係をインストール
+RUN composer install --no-dev --optimize-autoloader
+RUN npm ci --only=production
+
 # ソースコードをコピー
 COPY . .
 
-# PHP依存をインストール
-RUN composer install
+# フロントエンドをビルド
+RUN npm run build
 
 # .env.example → .env
 RUN cp .env.example .env
 
-# LaravelのAPP_KEY生成（初回のみ）
-RUN php artisan key:generate || true
+# LaravelのAPP_KEY生成
+RUN php artisan key:generate --force
 
-# Laravelキャッシュクリア
-RUN php artisan config:clear
-RUN php artisan route:clear
-RUN php artisan view:clear
+# キャッシュを最適化
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
 
 # 権限設定
-RUN chmod -R 777 storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Laravelマイグレーション
-RUN php artisan migrate --force || true
+# マイグレーション用のスクリプトを作成
+RUN echo '#!/bin/bash\n\
+php artisan migrate --force\n\
+php-fpm' > /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
-# アプリケーションログをコンソール出力
-CMD tail -f storage/logs/laravel.log & php artisan serve --host=0.0.0.0 --port=$PORT
+# ポート設定
+EXPOSE 8000
+
+# 起動コマンド
+CMD ["/usr/local/bin/start.sh"]
