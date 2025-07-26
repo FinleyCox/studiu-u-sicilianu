@@ -14,7 +14,9 @@ class WordTableSeeder extends Seeder
     public function run(): void
     {
         // 一度全削除
-        Word::truncate();
+        // Word::truncate();
+        Word::query()->delete();
+        
         // 新しく入れる 1: objects,people 2:prepositions 3:verbs,adverbs,adjectives 4:directions 5:time 6:numbers
         Word::create(['japanese' => '車', 'sicilian' => 'machina', 'category' => 1]);
         Word::create(['japanese' => 'バイク', 'sicilian' => 'motu', 'category' => 1]);
