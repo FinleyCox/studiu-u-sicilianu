@@ -21,7 +21,12 @@ RUN sed -i 's/Listen 80/Listen $PORT/g' /etc/apache2/ports.conf \
 RUN mkdir -p /var/www/html/public
 COPY public/test.php /var/www/html/public/test.php
 
-# 5. 起動スクリプトを作成
+# 5. 権限を明示的に設定
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
+    && chmod 644 /var/www/html/public/test.php
+
+# 6. 起動スクリプトを作成
 RUN echo '#!/bin/bash\n\
 export PORT=${PORT:-80}\n\
 sed -i "s/\$PORT/$PORT/g" /etc/apache2/ports.conf\n\
@@ -29,5 +34,5 @@ sed -i "s/:80/:$PORT/g" /etc/apache2/sites-available/000-default.conf\n\
 apache2-foreground' > /usr/local/bin/start.sh \
     && chmod +x /usr/local/bin/start.sh
 
-# 6. 起動スクリプトを実行
+# 7. 起動スクリプトを実行
 CMD ["/usr/local/bin/start.sh"]
