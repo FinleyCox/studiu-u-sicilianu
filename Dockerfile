@@ -9,8 +9,11 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    nodejs \
-    npm
+    gnupg
+
+# Install Node.js 18.x
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -30,13 +33,13 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy package files
 COPY package.json package-lock.json ./
-RUN npm ci --only=production
+RUN npm ci
 
 # Copy application files
 COPY . .
 
-# Build assets
-RUN npm run build
+# Build assets (with explicit NODE_ENV)
+RUN NODE_ENV=production npm run build
 
 # Set proper permissions
 RUN chmod -R 755 storage bootstrap/cache
