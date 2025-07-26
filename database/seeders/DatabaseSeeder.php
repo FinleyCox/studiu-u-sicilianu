@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // $this->call(WordTableSeeder::class);
-        // $this->call(PhraseTableSeeder::class);
+        $this->call(WordTableSeeder::class);
+        $this->call(PhraseTableSeeder::class);
     }
 }
