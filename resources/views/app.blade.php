@@ -13,7 +13,12 @@
     <!-- toastr CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    @vite(['resources/js/app.js']) <!-- Viteのエントリーポイント -->
+    @if(app()->environment('production'))
+        @vite(['resources/js/app.js'])
+    @else
+        <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/resources/js/app.js"></script>
+    @endif
 </head>
 <body>
     <div id="app"></div> <!-- Vueがマウントされる場所 -->
