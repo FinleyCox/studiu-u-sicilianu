@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# 1. System deps
+# Install dependencies
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
@@ -8,31 +8,26 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. PHP extensions
+# Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql
 
-# 3. Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# 4. Apache port change to 8080 (Railway)
-RUN sed -i 's/80/8080/g' /etc/apache2/ports.conf \
-    && sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf
-EXPOSE 8080
-
-# 5. Apache document root
+# Set document root
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+# Configure Apache
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf \
     && a2enmod rewrite
 
-# 6. Copy app
+# Copy application
 COPY . /var/www/html
+
 WORKDIR /var/www/html
 
-# 7. .envがなければ作成（Railway環境変数が優先されるのでここは不要でも良い）
-RUN test -f .env || cp .env.example .env
-
-# 8. Composer install
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
 # 9. Laravelキャッシュ系（DB繋がらないので失敗してもOKにする）
