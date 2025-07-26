@@ -3,7 +3,7 @@ services:
     name: studiu-u-sicilianu
     env: docker
     buildCommand: docker build -t studiu-app .
-    startCommand: docker run -p $PORT:8000 studiu-app
+    startCommand: docker run -p $PORT:80 studiu-app
     envVars:
       - key: APP_ENV
         value: production

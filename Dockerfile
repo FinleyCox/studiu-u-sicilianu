@@ -17,13 +17,23 @@ RUN apt-get install -y \
 # 作業ディレクトリ
 WORKDIR /app
 
-# ソースコードをコピー
-COPY . .
+# Composerの環境変数を設定
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# composer.jsonとcomposer.lockを先にコピー（キャッシュ効率化）
+COPY composer.json composer.lock ./
 
 # 依存関係をインストール
 RUN composer install --no-dev --optimize-autoloader --no-scripts
-RUN composer dump-autoload --optimize
+
+# package.jsonとpackage-lock.jsonをコピー
+COPY package.json package-lock.json ./
+
+# Node.js依存関係をインストール
 RUN npm ci --only=production
+
+# 残りのソースコードをコピー
+COPY . .
 
 # フロントエンドをビルド
 RUN npm run build
@@ -43,14 +53,18 @@ RUN php artisan view:cache
 RUN chmod -R 775 storage bootstrap/cache
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+# nginx設定
+COPY nginx.conf /etc/nginx/sites-available/default
+
 # マイグレーション用のスクリプトを作成
 RUN echo '#!/bin/bash\n\
 php artisan migrate --force\n\
 php artisan db:seed --force\n\
+service nginx start\n\
 php-fpm' > /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
 # ポート設定
-EXPOSE 8000
+EXPOSE 80
 
 # 起動コマンド
 CMD ["/usr/local/bin/start.sh"]
