@@ -1,7 +1,24 @@
-# PHPイメージ
+# ビルドステージ
+FROM node:20 AS node-builder
+
+WORKDIR /app
+
+# package.jsonとpackage-lock.jsonをコピー
+COPY package.json package-lock.json ./
+
+# Node.js依存関係をインストール
+RUN npm ci
+
+# ソースコードをコピー
+COPY . .
+
+# フロントエンドをビルド
+RUN npm run build
+
+# 本番ステージ
 FROM php:8.2-fpm
 
-# Node.jsをインストール
+# Node.jsをインストール（本番用のみ）
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get update && apt-get install -y nodejs unzip git nginx
 
@@ -26,17 +43,11 @@ COPY composer.json composer.lock ./
 # 依存関係をインストール
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
-# package.jsonとpackage-lock.jsonをコピー
-COPY package.json package-lock.json ./
-
-# Node.js依存関係をインストール
-RUN npm ci --only=production
-
-# 残りのソースコードをコピー
+# ソースコードをコピー
 COPY . .
 
-# フロントエンドをビルド
-RUN npm run build
+# ビルドされたアセットをコピー
+COPY --from=node-builder /app/public/build ./public/build
 
 # .env.example → .env
 RUN cp .env.example .env
