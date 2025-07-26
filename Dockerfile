@@ -23,7 +23,7 @@ WORKDIR /var/www/html
 
 # Laravelのセットアップ
 RUN composer install --no-dev --optimize-autoloader \
-    && cp .env.example .env \
+    && if [ -f .env.example ]; then cp .env.example .env; else echo "APP_NAME=Laravel" > .env && echo "APP_ENV=production" >> .env && echo "APP_DEBUG=false" >> .env && echo "APP_URL=http://localhost" >> .env && echo "DB_CONNECTION=mysql" >> .env && echo "DB_HOST=127.0.0.1" >> .env && echo "DB_PORT=3306" >> .env && echo "DB_DATABASE=laravel" >> .env && echo "DB_USERNAME=root" >> .env && echo "DB_PASSWORD=" >> .env; fi \
     && php artisan config:cache \
     && php artisan route:cache \
     && php artisan view:cache
