@@ -1,50 +1,32 @@
-FROM php:8.2-fpm
+FROM php:8.2-apache
 
-# Install system dependencies
+# 必須拡張などをインストール
 RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    nginx \
-    supervisor
+    git unzip libzip-dev libonig-dev libpng-dev libpq-dev libjpeg-dev libfreetype6-dev \
+    && docker-php-ext-install pdo pdo_mysql zip mbstring
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
-# Get latest Composer
+# Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
-WORKDIR /var/www
+# Apache用にDocumentRootを設定（Laravelのpublicディレクトリ）
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
-# Copy existing application directory contents
-COPY . /var/www
+# Apache設定変更
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+    && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf \
+    && a2enmod rewrite
 
-# Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www
+# アプリのコードをコピー
+COPY . /var/www/html
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader
+WORKDIR /var/www/html
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+# Laravelのセットアップ
+RUN composer install --no-dev --optimize-autoloader \
+    && cp .env.example .env \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
 
-# Copy nginx configuration
-COPY docker/nginx.conf /etc/nginx/sites-available/default
-
-# Copy supervisor configuration
-COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start supervisor
-CMD ["/usr/bin/supervisord"] 
+# パーミッションの設定（必要に応じて）
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
