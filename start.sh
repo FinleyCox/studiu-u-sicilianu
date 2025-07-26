@@ -63,4 +63,13 @@ ls -la storage/framework/
 # Start the application
 echo "Starting Laravel application..."
 echo "Application will be available at: http://0.0.0.0:${PORT:-8080}"
-php artisan serve --host=0.0.0.0 --port=${PORT:-8080} 
+
+# Show final configuration
+echo "Final configuration:"
+echo "APP_URL: $APP_URL"
+echo "PORT: $PORT"
+echo "Environment: $(php artisan env)"
+
+# Start the application
+echo "Executing: php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"
+exec php artisan serve --host=0.0.0.0 --port=${PORT:-8080} 

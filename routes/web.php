@@ -29,6 +29,7 @@ Route::get('/', function() {
     ]);
 });
 
-Route::get('/{any}', function() {
+// Vue application route
+Route::get('/app/{any?}', function() {
     return view('app');
 })->where('any', '.*');
