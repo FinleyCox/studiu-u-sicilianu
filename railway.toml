@@ -1,0 +1,19 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "/app/start.sh"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[deploy.envs]
+APP_ENV = "production"
+APP_DEBUG = "true"
+DB_CONNECTION = "mysql"
+CACHE_DRIVER = "file"
+SESSION_DRIVER = "file"
+QUEUE_CONNECTION = "sync"
+COMPOSER_ALLOW_SUPERUSER = "1" 
