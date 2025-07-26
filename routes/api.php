@@ -12,12 +12,15 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/quiz', [QuizController::class, 'index']);
+Route::get('/words', [WordController::class, 'getWordsByCategory']);
 Route::get('/words-contains', [WordController::class, 'index']);
 Route::post('/resetpassword', [LoginController::class, 'resetPassword']);
 
 // お気に入り関連
+Route::post('/favourites', [WordController::class, 'addFavourite']);
 Route::post('/words-contains/add-favourite', [WordController::class, 'addFavourite']);
 Route::post('/words-contains/is-favourite', [WordController::class, 'isFavourite']);
 Route::post('/words-contains/delete-favourite', [WordController::class, 'deleteFavourite']);
+Route::post('/delete-favourite', [WordController::class, 'deleteFavourite']);
 Route::get('/get-favourites', [WordController::class, 'getFavourites']);
 

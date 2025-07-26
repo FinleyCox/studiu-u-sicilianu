@@ -1,0 +1,54 @@
+/* モーダルのz-indexを明示的に設定 */
+.modal {
+    z-index: 1055 !important;
+}
+
+.modal-backdrop {
+    z-index: 1054 !important;
+}
+
+/* モーダル内の要素が確実にクリックできるように */
+.modal-dialog {
+    z-index: 1056 !important;
+}
+
+.modal-content {
+    z-index: 1057 !important;
+}
+
+/* モーダルが表示されている時のbodyの状態 */
+body.modal-open {
+    overflow: hidden !important;
+    padding-right: 0 !important;
+}
+
+.user-menu-content {
+    padding: 20px;
+}
+
+.user-info {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-actions .card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.user-actions .card:hover {
+    transform: translateY(-2px);
+}
+
+.danger-zone .card {
+    border: 2px solid #dc3545;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
+
+.danger-zone .card-header {
+    border-radius: 13px 13px 0 0;
+} 

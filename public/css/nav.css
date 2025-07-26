@@ -1,0 +1,21 @@
+.custom-nav {
+    background-color: rgb(182, 216, 218);
+    border-radius: 9px;
+    padding: 20px;
+}
+
+.custom-nav .nav-link {
+    color: #555151;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-nav .nav-link:hover {
+    background-color: rgb(126, 190, 193);
+    color: #333;
+}
+
+.custom-nav .nav-link i {
+    margin-right: 10px;
+} 
