@@ -8,6 +8,12 @@ echo "APP_URL: $APP_URL"
 echo "RAILWAY_PUBLIC_DOMAIN: $RAILWAY_PUBLIC_DOMAIN"
 echo "PORT: $PORT"
 
+# Set APP_URL if not set
+if [ -z "$APP_URL" ] && [ ! -z "$RAILWAY_PUBLIC_DOMAIN" ]; then
+    export APP_URL="https://$RAILWAY_PUBLIC_DOMAIN"
+    echo "Set APP_URL to: $APP_URL"
+fi
+
 # Wait for database to be ready
 echo "Waiting for database connection..."
 while ! mysqladmin ping -h"$DB_HOST" -P"$DB_PORT" -u"$DB_USERNAME" -p"$DB_PASSWORD" --silent; do
@@ -56,4 +62,5 @@ ls -la storage/framework/
 
 # Start the application
 echo "Starting Laravel application..."
+echo "Application will be available at: http://0.0.0.0:${PORT:-8080}"
 php artisan serve --host=0.0.0.0 --port=${PORT:-8080} 

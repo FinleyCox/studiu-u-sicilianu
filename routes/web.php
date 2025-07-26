@@ -15,7 +15,17 @@ Route::get('/test', function() {
         'message' => 'Hello from Laravel!',
         'env' => app()->environment(),
         'debug' => config('app.debug'),
-        'url' => config('app.url')
+        'url' => config('app.url'),
+        'timestamp' => now()
+    ]);
+});
+
+// Root endpoint for health check
+Route::get('/', function() {
+    return response()->json([
+        'status' => 'ok',
+        'message' => 'studiu u sicilianu is running',
+        'timestamp' => now()
     ]);
 });
 
