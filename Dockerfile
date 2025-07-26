@@ -40,6 +40,9 @@ COPY . .
 # Set proper permissions
 RUN chmod -R 755 storage bootstrap/cache
 
+# Create log file and set permissions
+RUN touch storage/logs/laravel.log && chmod 666 storage/logs/laravel.log
+
 # Clear and cache config (will be done at runtime)
 RUN php artisan config:clear
 RUN php artisan route:clear

@@ -16,7 +16,7 @@ done
 echo "Database is ready!"
 
 # Install and build assets
-echo "Installing and building assets..."
+echo "Installing and build assets..."
 npm install
 echo "NPM install completed"
 
@@ -29,6 +29,10 @@ else
     echo "Build directory already exists, skipping build"
 fi
 
+# Debug: Check if build files exist
+echo "Debug: Checking build files..."
+ls -la public/build/ || echo "Build directory not found"
+
 # Run migrations
 echo "Running migrations..."
 php artisan migrate --force
@@ -38,6 +42,17 @@ echo "Caching configuration..."
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
+
+# Debug: Check Laravel configuration
+echo "Debug: Laravel configuration"
+php artisan config:show app
+php artisan route:list --compact
+
+# Debug: Check storage permissions
+echo "Debug: Storage permissions"
+ls -la storage/
+ls -la storage/logs/
+ls -la storage/framework/
 
 # Start the application
 echo "Starting Laravel application..."
