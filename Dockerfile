@@ -36,10 +36,18 @@ RUN chown -R www-data:www-data /var/www/html \
 
 # 8. 起動スクリプトを作成
 RUN echo '#!/bin/bash\n\
-export PORT=${PORT:-80}\n\
-sed -i "s/\$PORT/$PORT/g" /etc/apache2/ports.conf\n\
-sed -i "s/:80/:$PORT/g" /etc/apache2/sites-available/000-default.conf\n\
-apache2-foreground' > /usr/local/bin/start.sh \
+set -e\n\
+export PORT=${PORT:-8080}\n\
+# ports.conf の Listen 行を実ポートに\n\
+sed -i "s/^Listen .*/Listen ${PORT}/" /etc/apache2/ports.conf\n\
+# 000-default.conf の <VirtualHost *:PORT> を実ポートに（:$PORT や :80 の両方に対応）\n\
+sed -ri "s#<VirtualHost \\*(:[0-9]+)?>#<VirtualHost *:${PORT}>#g" /etc/apache2/sites-available/000-default.conf\n\
+# $PORT という文字列が残っている場合の保険（ports.conf / 000-default.conf 両方）\n\
+sed -i \"s/\\$PORT/${PORT}/g\" /etc/apache2/ports.conf /etc/apache2/sites-available/000-default.conf\n\
+# ServerName の警告抑止\n\
+echo \"ServerName localhost\" > /etc/apache2/conf-available/servername.conf\n\
+a2enconf servername >/dev/null 2>&1 || true\n\
+exec apache2-foreground' > /usr/local/bin/start.sh \
  && chmod +x /usr/local/bin/start.sh
 
 CMD ["/usr/local/bin/start.sh"]
