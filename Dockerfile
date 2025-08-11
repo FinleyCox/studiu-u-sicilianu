@@ -13,6 +13,11 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
+# （.htaccess を有効化）
+RUN printf '<Directory ${APACHE_DOCUMENT_ROOT}>\n    AllowOverride All\n</Directory>\n' \
+> /etc/apache2/conf-available/laravel-override.conf \
+&& a2enconf laravel-override
+
 # 3. Railway用のポート設定
 RUN sed -i 's/Listen 80/Listen 9000/' /etc/apache2/ports.conf \
     && sed -i 's/:80/:9000/g' /etc/apache2/sites-available/000-default.conf

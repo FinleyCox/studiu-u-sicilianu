@@ -28,9 +28,9 @@ Route::get('/register', function() {
 
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
-Route::get('/forgot-password', function() {
-    return view('auth.forgot-password');
-})->name('forgot-password');
+// Route::get('/forgot-password', function() {
+//     return view('auth.forgot-password');
+// })->name('forgot-password');
 
 // Public routes (no authentication required)
 Route::get('/words', function() {
