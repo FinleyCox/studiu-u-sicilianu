@@ -14,8 +14,9 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 # 3. Railway用のポート設定
-RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf \
-    && sed -i 's/:80/:8080/g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/Listen 80/Listen 9000/' /etc/apache2/ports.conf \
+    && sed -i 's/:80/:9000/g' /etc/apache2/sites-available/000-default.conf
+
 
 # 4) アプリ一式をコピー
 WORKDIR /var/www/html
@@ -36,7 +37,6 @@ RUN chown -R www-data:www-data /var/www/html \
 
 # 8. 起動スクリプトを作成
 RUN echo '#!/bin/bash\nset -e\n\
-# ServerName の警告抑止（任意）
 echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf\n\
 a2enconf servername >/dev/null 2>&1 || true\n\
 exec apache2-foreground\n' > /usr/local/bin/start.sh \
