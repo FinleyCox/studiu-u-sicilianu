@@ -8,12 +8,12 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\AuthController;
 
 // Home page
-// Route::get('/', function() {
-//     return view('home');
-// })->name('home');
-Route::get('/', function () {
-    return 'Laravel is alive!';
-});
+Route::get('/', function() {
+    return view('home');
+})->name('home');
+// Route::get('/', function () {
+//     return 'Laravel is alive!';
+// });
 
 // Auth routes
 Route::get('/login', function() {
