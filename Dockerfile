@@ -33,5 +33,12 @@ sed -i "s/:80/:$PORT/g" /etc/apache2/sites-available/000-default.conf\n\
 apache2-foreground' > /usr/local/bin/start.sh \
  && chmod +x /usr/local/bin/start.sh
 
+# 7. ディレクトリを作成
+ RUN mkdir -p storage/framework/{cache,data,sessions,testing,views} \
+    storage/logs \
+    bootstrap/cache \
+ && chown -R www-data:www-data /var/www/html \
+ && chmod -R ug+rwx storage bootstrap/cache
+
 # 7. 起動スクリプトを実行
 CMD ["/usr/local/bin/start.sh"]
