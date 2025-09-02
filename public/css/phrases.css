@@ -263,35 +263,3 @@
         min-width: 32px;
     }
 }
-
-/* ダークモード対応 */
-@media (prefers-color-scheme: dark) {
-    .phrases-content {
-        background: #1a1a1a;
-        color: #ffffff;
-    }
-    
-    .phrase-item {
-        background: #2d2d2d;
-        border-color: #404040;
-    }
-    
-    .phrase-item .card-title {
-        color: #ffffff;
-    }
-    
-    .phrase-item .card-text {
-        color: #cccccc;
-    }
-    
-    .ad-container {
-        background: #2d2d2d;
-        border-color: #404040;
-    }
-    
-    #messageArea {
-        background: #2d2d2d;
-        border-color: #404040;
-        color: #ffffff;
-    }
-}
