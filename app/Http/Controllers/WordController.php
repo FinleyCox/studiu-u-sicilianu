@@ -48,12 +48,12 @@ class WordController extends Controller
 
     public function addFavourite(Request $request)
     {
-        // デバッグ情報をログに記録
-        \Log::info('addFavourite called', [
-            'request_data' => $request->all(),
-            'user_id' => auth()->id(),
-            'authenticated' => auth()->check()
-        ]);
+        // // デバッグ情報をログに記録
+        // \Log::info('addFavourite called', [
+        //     'request_data' => $request->all(),
+        //     'user_id' => auth()->id(),
+        //     'authenticated' => auth()->check()
+        // ]);
         
         // postされたデータを取得
         $wordId = $request->input('word_id') ?? $request->input('wordId');

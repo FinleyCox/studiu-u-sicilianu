@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favourite extends Model
 {
-    protected $fillable = ['user_id', 'word_id'];
+    protected $fillable = ['user_id', 'word_id', 'phrase_id'];
 
     public function user()
     {
@@ -16,6 +16,11 @@ class Favourite extends Model
     public function word()
     {
         return $this->belongsTo(Word::class);
+    }
+    
+    public function phrase()
+    {
+        return $this->belongsTo(Phrase::class);
     }
     
 }
