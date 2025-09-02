@@ -11,12 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const wordDiv = document.createElement('div');
                 wordDiv.className = 'word-item card mb-3';
                 wordDiv.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${word.sicilian}</h5>
-                        <p class="card-text">${word.japanese}</p>
-                        <button class="btn btn-sm btn-outline-primary" onclick="toggleFavourite(${word.id}, event)">
-                            <i class="bi bi-heart${word.is_favourite ? '-fill' : ''}"></i>
-                        </button>
+                    <div class="card-body d-flex align-items-center">
+                        <div class="flex-grow-1 text-center">
+                            <h5 class="card-title mb-2">${word.sicilian}</h5>
+                            <p class="card-text mb-0">${word.japanese}</p>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-sm btn-outline-primary" onclick="toggleFavourite(${word.id}, event)">
+                                <i class="bi bi-heart${word.is_favourite ? '-fill' : ''}"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
                 wordList.appendChild(wordDiv);

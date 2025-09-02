@@ -1,0 +1,297 @@
+/* メインコンテンツエリア */
+.phrases-content {
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.phrases-content h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.phrases-content p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+/* AdSense広告エリア */
+.ad-container {
+    margin: 30px auto;
+    text-align: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ad-container ins {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* フレーズアイテム */
+.phrase-item {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.phrase-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+.phrase-item .card-title {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.phrase-item .card-text {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.phrase-item .card-body {
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.phrase-item .flex-grow-1 {
+    min-width: 0;
+    flex: 1;
+}
+
+.phrase-item .btn {
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.phrase-item .btn:hover {
+    transform: scale(1.05);
+}
+
+.phrase-item .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.phrase-item .btn-outline-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.phrase-item .btn-outline-primary i {
+    font-size: 1rem;
+}
+
+/* ページネーション */
+.pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.pagination .page-link {
+    color: #007bff;
+    border: 1px solid #dee2e6;
+    padding: 10px 15px;
+    margin: 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 44px;
+    text-align: center;
+}
+
+.pagination .page-link:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    text-decoration: none;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+/* メッセージ表示エリア */
+#messageArea {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* レスポンシブデザイン - タブレット */
+@media (max-width: 1024px) {
+    .phrases-content {
+        padding: 30px 25px;
+        max-width: 100%;
+    }
+    
+    .ad-container {
+        margin: 25px auto;
+        padding: 18px;
+    }
+    
+    .phrase-item .card-body {
+        padding: 1.25rem;
+    }
+}
+
+/* レスポンシブデザイン - モバイル */
+@media (max-width: 768px) {
+    .phrases-content {
+        padding: 20px 15px;
+        max-width: 100%;
+    }
+    
+    .phrases-content h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .phrases-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .phrase-item .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .phrase-item .card-text {
+        font-size: 1rem;
+    }
+    
+    .pagination .page-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        min-width: 40px;
+    }
+    
+    .ad-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
+
+/* 小さいスマホ用 */
+@media (max-width: 480px) {
+    .phrases-content {
+        padding: 15px 10px;
+        max-width: 100%;
+    }
+    
+    .phrases-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .phrase-item .card-body {
+        padding: 1rem;
+    }
+    
+    .phrase-item .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .ad-container {
+        margin: 15px auto;
+        padding: 10px;
+    }
+    
+    .pagination .page-link {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-width: 36px;
+    }
+}
+
+/* 超小さいスマホ用 */
+@media (max-width: 360px) {
+    .phrases-content {
+        padding: 10px 8px;
+    }
+    
+    .phrases-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .phrase-item .card-body {
+        padding: 0.75rem;
+    }
+    
+    .pagination .page-link {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        min-width: 32px;
+    }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    .phrases-content {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .phrase-item {
+        background: #2d2d2d;
+        border-color: #404040;
+    }
+    
+    .phrase-item .card-title {
+        color: #ffffff;
+    }
+    
+    .phrase-item .card-text {
+        color: #cccccc;
+    }
+    
+    .ad-container {
+        background: #2d2d2d;
+        border-color: #404040;
+    }
+    
+    #messageArea {
+        background: #2d2d2d;
+        border-color: #404040;
+        color: #ffffff;
+    }
+}

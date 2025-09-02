@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+<link rel="stylesheet" href="/css/words.css">
 <div class="words-contains-content">
     <h2>Words Category : @php
         $categoryNames = [
