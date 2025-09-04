@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <title>studiu u sicilianu</title>
     <!-- jQueryを先に読み込ませてからトースター-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -306,9 +307,8 @@
     @if(request()->is('/'))
     <div class="footer">
         <div class="text-left">
-            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by AiN</a> 👈Click to GitHub<br>
+            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by FinleyCox</a> 👈Click to GitHub<br>
             <a class="text-reset fw-bold footer-a" href="https://qiita.com/_anonymous_dog_" target="_blank">@_anonymous_dog_</a> 👈Click to my Qiita account<br>
-            <p><a class="text-reset fw-bold footer-a" href="javascript:void(0)">inter0370@gmail.com</a> 👈For Contact</p>
         </div>
     </div>
     @endif
