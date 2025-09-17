@@ -16,17 +16,17 @@ Route::get('/', function() {
 // });
 
 // Auth routes
-Route::get('/login', function() {
-    return view('auth.login');
-})->name('login');
+// Route::get('/login', function() {
+//     return view('auth.login');
+// })->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+// Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-Route::get('/register', function() {
-    return view('auth.register');
-})->name('register');
+// Route::get('/register', function() {
+//     return view('auth.register');
+// })->name('register');
 
-Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+// Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 // Route::get('/forgot-password', function() {
 //     return view('auth.forgot-password');
@@ -54,19 +54,40 @@ Route::get('/conjugation', function() {
 })->name('conjugation');
 
 // Protected routes (authentication required)
-Route::middleware('auth')->group(function() {
-    Route::get('/favourites', function() {
-    return view('favourites');
-})->name('favourites');
+// Route::middleware('auth')->group(function() {
+//     Route::get('/favourites', function() {
+//     return view('favourites');
+// })->name('favourites');
 
-Route::get('/user-menu', function() {
-    return view('user-menu');
-})->name('user-menu');
-});
+// Route::get('/user-menu', function() {
+//     return view('user-menu');
+// })->name('user-menu');
+// });
 
-// お気に入り機能（認証ミドルウェアを個別に適用）
-Route::post('/favourites', [App\Http\Controllers\WordController::class, 'addFavourite'])->middleware('auth');
-Route::post('/delete-account', [App\Http\Controllers\AuthController::class, 'deleteAccount'])->middleware('auth');
+// お気に入り機能（認証ミドルウェアを個別に適用） 
+// Route::post('/favourites', [App\Http\Controllers\WordController::class, 'addFavourite'])->middleware('auth');
+// Route::post('/delete-account', [App\Http\Controllers\AuthController::class, 'deleteAccount'])->middleware('auth');
 
 // Logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Static pages
+Route::get('/about', function() {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function() {
+    return view('contact');
+})->name('contact');
+
+Route::get('/privacy-policy', function() {
+    return view('privacy-policy');
+})->name('privacy-policy');
+
+Route::get('/terms-of-service', function() {
+    return view('terms-of-service');
+})->name('terms-of-service');
+
+Route::get('/sitemap', function() {
+    return view('sitemap');
+})->name('sitemap');

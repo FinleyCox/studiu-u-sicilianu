@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://studiu-u-sicilianu.onrender.com/sitemap.xml
