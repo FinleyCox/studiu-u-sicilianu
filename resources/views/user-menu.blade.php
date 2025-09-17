@@ -1,3 +1,5 @@
+{{-- USER MENU VIEW --}}
+{{-- 
 @extends('app')
 
 @section('content')
@@ -9,6 +11,7 @@
     @auth
     <div class="user-info card mb-4">
         <div class="card-body">
+            <h5 class="card-title">ユーザー情報</h5>
             <p class="card-text">
                 <strong>ユーザー名:</strong> {{ Auth::user()->name }}<br>
                 <strong>メールアドレス:</strong> {{ Auth::user()->email }}<br>
@@ -22,10 +25,10 @@
             <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="bi bi-heart text-danger mb-3" style="font-size: 2rem;"></i>
-                        <h5 class="card-title">お気に入り</h5>
-                        <p class="card-text">保存した単語とフレーズを確認</p>
-                        <a href="/favourites" class="btn btn-primary">お気に入り一覧</a>
+                        <i class="bi bi-heart-fill text-danger" style="font-size: 2rem;"></i>
+                        <h5 class="card-title mt-2">お気に入り</h5>
+                        <p class="card-text">保存した単語・フレーズを確認</p>
+                        <a href="/favourites" class="btn btn-outline-danger">お気に入りを見る</a>
                     </div>
                 </div>
             </div>
@@ -33,79 +36,76 @@
             <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="bi bi-gear text-secondary mb-3" style="font-size: 2rem;"></i>
-                        <h5 class="card-title">設定</h5>
-                        <p class="card-text">アカウント設定を変更</p>
-                        <button class="btn btn-secondary" disabled>設定（準備中）</button>
+                        <i class="bi bi-graph-up text-success" style="font-size: 2rem;"></i>
+                        <h5 class="card-title mt-2">学習統計</h5>
+                        <p class="card-text">学習の進捗を確認</p>
+                        <button class="btn btn-outline-success" disabled>準備中</button>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="danger-zone mt-4">
-            <div class="card border-danger">
-                <div class="card-header bg-danger text-white">
-                    <h5 class="mb-0">
-                        <i class="bi bi-exclamation-triangle"></i> 危険な操作
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-title text-danger">アカウント削除</h6>
-                    <p class="card-text">
-                        アカウントを削除すると、すべてのデータ（お気に入り、学習履歴など）が完全に削除され、復元できません。
-                        この操作は取り消すことができません。
-                    </p>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
-                        <i class="bi bi-trash"></i> アカウントを削除
-                    </button>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- 退会確認モーダル -->
-    <div class="modal" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="deleteAccountModalLabel">
-                        <i class="bi bi-exclamation-triangle"></i> アカウント削除の確認
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-danger"><strong>警告:</strong> この操作は取り消すことができません。</p>
-                    <p>以下のデータがすべて削除されます：</p>
-                    <ul>
-                        <li>お気に入りに登録した単語・フレーズ</li>
-                        <li>学習履歴</li>
-                        <li>アカウント情報</li>
-                    </ul>
-                    <p>本当にアカウントを削除しますか？</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="confirmDelete">
-                        <label class="form-check-label" for="confirmDelete">
-                            上記の内容を理解し、アカウントの削除に同意します
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn" disabled>
-                        <i class="bi bi-trash"></i> アカウントを削除
-                    </button>
-                </div>
+    <div class="account-actions mt-4">
+        <div class="card border-warning">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">⚠️ 危険な操作</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">アカウントを削除すると、すべてのデータが失われます。この操作は取り消せません。</p>
+                <button class="btn btn-danger" onclick="confirmDeleteAccount()">アカウントを削除</button>
             </div>
         </div>
+    </div>
+    
+    <div class="logout-section mt-4">
+        <form method="POST" action="/logout" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-outline-secondary">
+                <i class="bi bi-box-arrow-right"></i> ログアウト
+            </button>
+        </form>
     </div>
     
     @else
-    <div class="alert alert-warning">
-        <i class="bi bi-exclamation-triangle"></i>
-        ログインが必要です。
-        <a href="/login" class="alert-link">ログイン</a>してください。
+    <div class="alert alert-info">
+        <h4>ログインが必要です</h4>
+        <p>このページを利用するには、ログインが必要です。</p>
+        <a href="/login" class="btn btn-primary">ログイン</a>
+        <a href="/register" class="btn btn-outline-primary">新規登録</a>
     </div>
     @endauth
 </div>
 
+<script>
+function confirmDeleteAccount() {
+    if (confirm('本当にアカウントを削除しますか？この操作は取り消せません。')) {
+        if (confirm('最後の確認です。アカウントを削除しますか？')) {
+            // アカウント削除の処理
+            fetch('/delete-account', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('アカウントが削除されました。');
+                    window.location.href = '/';
+                } else {
+                    alert('エラーが発生しました: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('エラーが発生しました。');
+            });
+        }
+    }
+}
+</script>
+
 @endsection 
+--}}

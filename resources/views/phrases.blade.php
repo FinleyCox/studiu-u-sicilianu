@@ -5,8 +5,6 @@
 <link rel="stylesheet" href="/css/phrases.css">
 <body data-userid="{{ Auth::id() ?? 0 }}">
 <div class="phrases-content">
-    <p>Learn common Sicilian phrases</p>
-    
     <!-- メッセージ表示エリア -->
     <div id="messageArea" class="alert" style="display: none;"></div>
     

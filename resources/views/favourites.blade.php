@@ -1,3 +1,5 @@
+{{-- FAVOURITES VIEW --}}
+{{-- 
 @extends('app')
 
 @section('content')
@@ -8,15 +10,16 @@
     <!-- メッセージ表示エリア -->
     <div id="messageArea" class="alert" style="display: none;"></div>
     
-    <div class="favourites-list" id="favouritesList" data-userid="{{ Auth::id() }}">
-        <!-- お気に入りコンテンツがここに読み込まれます -->
-        <div class="text-center">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">読み込み中...</span>
-            </div>
-        </div>
+    <div class="favourites-list" id="favouritesList" data-userid="{{ Auth::id() ?? 0 }}">
+        <!-- お気に入りがここに読み込まれます -->
+    </div>
+    
+    <!-- ページネーション -->
+    <div id="pagination" class="d-flex justify-content-center mt-4">
+        <!-- ページネーションがここに読み込まれます -->
     </div>
 </div>
 
 <script src="/js/favourites.js"></script>
 @endsection 
+--}}

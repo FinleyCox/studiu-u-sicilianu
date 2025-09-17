@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/words</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/words-contains</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/phrases</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/quiz</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/conjugation</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/about</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/contact</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/privacy-policy</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/terms-of-service</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/sitemap</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/login</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://studiu-u-sicilianu.onrender.com/register</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+</urlset>

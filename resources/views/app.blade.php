@@ -8,7 +8,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <title>studiu u sicilianu</title>
+    <title>@yield('title', 'studiu u sicilianu - シチリア語学習サイト')</title>
+    <meta name="description" content="@yield('description', 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。')">
+    <meta name="keywords" content="シチリア語, 学習, イタリア語, 言語学習, 単語, フレーズ, クイズ, 動詞活用">
+    <meta name="author" content="Ai Nakajima">
+    <meta property="og:title" content="@yield('title', 'studiu u sicilianu - シチリア語学習サイト')">
+    <meta property="og:description" content="@yield('description', 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@yield('title', 'studiu u sicilianu - シチリア語学習サイト')">
+    <meta name="twitter:description" content="@yield('description', 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。')">
     <!-- jQueryを先に読み込ませてからトースター-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- toastr CDN -->
@@ -34,26 +44,58 @@
             margin-bottom: 20px;
         }
         
-        .container {
-            margin-left: 395px;
-            max-width: 900px;
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.5s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .main-content .container {
+            margin-left: 0;
+            max-width: 100%;
             width: 100%;
             box-sizing: border-box;
-            background-color: linear-gradient(135deg, #eeecf1, #e7eaf0);
+            background-color: transparent;
             display: block;
             z-index: 1;
-            margin-top: 40px;
+            margin-top: 0;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        @media (min-width: 768px) {
+            .main-content {
+                margin-left: 250px;
+            }
+            
+            .main-content .container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+            }
         }
         
         .footer {
             width: 100%;
             background-color: rgb(243, 240, 240);
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
+            padding: 20px 0;
             margin-top: auto;
             z-index: 1;
             position: static;
+        }
+        
+        .footer .container {
+            margin-left: 0;
+            max-width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .footer .container {
+                margin-left: 250px;
+                max-width: calc(100% - 250px);
+            }
         }
         .text-left {
             padding-top: 12px;
@@ -62,14 +104,25 @@
         }
         .sidenav {
             height: 100%;
-            width: 15%;
+            width: 250px;
             background-color: rgb(182, 216, 218);
             overflow-x: hidden;
             padding-top: 20px;
             position: fixed;
             top: 0;
+            left: -250px;
+            z-index: 1000;
+            transition: left 0.3s ease;
+        }
+        
+        .sidenav.active {
             left: 0;
-            z-index: 1;
+        }
+        
+        @media (min-width: 768px) {
+            .sidenav {
+                left: 0;
+            }
         }
         .side-menu {
             color: #555151;
@@ -89,17 +142,23 @@
         
         /* ハンバーガーメニューボタン */
         .hamburger-btn {
-            display: none;
+            display: block;
             position: fixed;
             top: 20px;
             left: 20px;
-            z-index: 1000;
+            z-index: 1001;
             background: rgb(182, 216, 218);
             border: none;
             border-radius: 5px;
             padding: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .hamburger-btn {
+                display: none;
+            }
         }
         
         .hamburger-btn:hover {
@@ -113,6 +172,28 @@
             margin: 5px 0;
             transition: 0.3s;
             display: block;
+        }
+        
+        /* オーバーレイ */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .sidebar-overlay {
+                display: none !important;
+            }
         }
         
         /* 戻るボタン */
@@ -284,7 +365,8 @@
     
     <div class="sidenav" id="sidenav">
         <div class="side-menu">
-            @auth
+            {{-- User display --}}
+            {{-- @auth
             <p class="w-100 mb-3">
                 <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}さん
             </p>
@@ -292,26 +374,58 @@
             <p class="w-100 mb-3">
                 <i class="bi bi-person-circle"></i> Guest
             </p>
-            @endauth
+            @endauth --}}
             @include('layouts.side-menu')
         </div>
     </div>
     
-    <div class="container">
-        <div class="header">
-            <p>studiu u sicilianu</p>
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <p>studiu u sicilianu</p>
+            </div>
+            @yield('content')
         </div>
-        @yield('content')
     </div>
     
-    @if(request()->is('/'))
     <div class="footer">
-        <div class="text-left">
-            <a class="text-reset fw-bold footer-a" href="https://github.com/FinleyCox" target="_blank">Created by FinleyCox</a> 👈Click to GitHub<br>
-            <a class="text-reset fw-bold footer-a" href="https://qiita.com/_anonymous_dog_" target="_blank">@_anonymous_dog_</a> 👈Click to my Qiita account<br>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h6 class="fw-bold mb-3">studiu u sicilianu</h6>
+                    <p class="small text-muted mb-3">シチリア語学習を支援するウェブサイト</p>
+                    <div class="d-flex gap-3">
+                        <a href="https://github.com/FinleyCox" target="_blank" class="text-reset text-decoration-none">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://qiita.com/_anonymous_dog_" target="_blank" class="text-reset text-decoration-none">
+                            <i class="bi bi-file-text"></i> Qiita
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="/about" class="text-reset text-decoration-none">サイトについて</a></li>
+                        <li class="mb-2"><a href="/contact" class="text-reset text-decoration-none">お問い合わせ</a></li>
+                        <li class="mb-2"><a href="/sitemap" class="text-reset text-decoration-none">サイトマップ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold mb-3">法的情報</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="/privacy-policy" class="text-reset text-decoration-none">プライバシーポリシー</a></li>
+                        <li class="mb-2"><a href="/terms-of-service" class="text-reset text-decoration-none">利用規約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center small text-muted">
+                <p class="mb-1">&copy; {{ date('Y') }} studiu u sicilianu. All rights reserved.</p>
+                <p class="mb-0">Created by <a href="https://github.com/FinleyCox" target="_blank" class="text-reset text-decoration-none">FinleyCox</a></p>
+            </div>
         </div>
     </div>
-    @endif
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/user-menu.js"></script>
