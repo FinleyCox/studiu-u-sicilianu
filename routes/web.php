@@ -91,3 +91,31 @@ Route::get('/terms-of-service', function() {
 Route::get('/sitemap', function() {
     return view('sitemap');
 })->name('sitemap');
+
+Route::get('/sitemap.xml', function () {
+    $lastmod = now()->toDateString();
+    $pages = [
+        ['loc' => route('home'), 'changefreq' => 'weekly', 'priority' => '1.0'],
+        ['loc' => route('words'), 'changefreq' => 'weekly', 'priority' => '0.9'],
+        ['loc' => route('phrases'), 'changefreq' => 'weekly', 'priority' => '0.85'],
+        ['loc' => route('quiz'), 'changefreq' => 'weekly', 'priority' => '0.8'],
+        ['loc' => route('conjugation'), 'changefreq' => 'monthly', 'priority' => '0.7'],
+        ['loc' => route('about'), 'changefreq' => 'monthly', 'priority' => '0.5'],
+        ['loc' => route('contact'), 'changefreq' => 'monthly', 'priority' => '0.5'],
+        ['loc' => route('privacy-policy'), 'changefreq' => 'yearly', 'priority' => '0.3'],
+        ['loc' => route('terms-of-service'), 'changefreq' => 'yearly', 'priority' => '0.3'],
+        ['loc' => route('sitemap'), 'changefreq' => 'monthly', 'priority' => '0.4'],
+    ];
+    $categoryPages = collect([1, 2, 3, 4, 5, 6])->map(fn ($category) => [
+        'loc' => route('words-contains', ['category' => $category]),
+        'changefreq' => 'weekly',
+        'priority' => '0.75',
+    ])->all();
+
+    return response()
+        ->view('sitemap-xml', [
+            'pages' => array_merge($pages, $categoryPages),
+            'lastmod' => $lastmod,
+        ])
+        ->header('Content-Type', 'application/xml');
+});

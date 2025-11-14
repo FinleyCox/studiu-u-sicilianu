@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7ebed1"/>
+            <stop offset="100%" stop-color="#b6dfe6"/>
+        </linearGradient>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bg)"/>
+    <g fill="#ffffff" font-family="Merriweather, 'Noto Sans JP', sans-serif">
+        <text x="100" y="200" font-size="48" opacity="0.9">シチリア語学習プラットフォーム</text>
+        <text x="100" y="320" font-size="82" font-weight="700">studiu u sicilianu</text>
+        <text x="100" y="410" font-size="40" opacity="0.85">単語・フレーズ・クイズで段階的に学ぶ</text>
+    </g>
+    <g transform="translate(950 120)" fill="#ffffff" opacity="0.3">
+        <circle cx="0" cy="0" r="70"/>
+        <circle cx="-80" cy="120" r="40"/>
+        <circle cx="40" cy="160" r="50"/>
+    </g>
+</svg>
