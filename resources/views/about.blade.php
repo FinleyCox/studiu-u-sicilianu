@@ -19,10 +19,9 @@
 
 @section('content')
 <div class="content-wide">
-    <h1 class="mb-4">studiu u sicilianu について</h1>
     <div class="card page-card">
         <div class="card-body">
-                    <h3>サイトの目的</h3>
+                    <h4>サイトの目的</h4>
                     <p>
                         studiu u sicilianuは「シチリア語を勉強する」という意味。<br>
                         シチリア語を学びたい方のための学習支援サイトです。今では話す人も少なくなっている言語ですがシチリアルーツの米国人の中には学びたいと考えている人が少なくありません。<br>
@@ -30,62 +29,37 @@
                         なので自分が学んだことを人にも知ってもらって、どんどん使ってもらおう！と思い立ちこのサイトを作成しました
                     </p>
 
-                    <h3>なぜシチリア語?</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>貴重な言語であるため</h3>
-                            <p>シチリア語は、ユネスコの「消滅の危機にある言語」に分類されており次世代に残すべき貴重な文化的遺産です。</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>独特な文化</h3>
-                            <p>
-                                カンノーリを初めて食べたことからシチリアに興味を持ち、<br>
-                                シチリアについて調べているうちにこの地域特有の言語がある（今ではあまり話されてないが）と知ったことがきっかけです
-                            </p>
-                        </div>
-                    </div>
+                    <h4>なぜシチリア語?</h4>
+                        <h4>貴重な言語であるため</h4>
+                        <p>個人的な興味のほか、実はユネスコの「消滅の危機にある言語」に分類されているんです！次世代に残すべき貴重な文化的遺産であると考えています</p>
+                        <p>
+                            カンノーリを初めて食べたことからシチリアに興味を持ち、<br>
+                            シチリアについて調べているうちにこの地域特有の言語がある（今ではあまり話されてないが）と知ったことがきっかけです
+                        </p>
 
-                    {{-- <h3>サイトの特徴</h3>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="text-center mb-3">
-                                <i class="bi bi-book-fill text-primary" style="font-size: 2rem;"></i>
-                            </div>
-                            <h4>体系的学習</h4>
-                            <p>単語、フレーズ、動詞の活用など、段階的に学習できる構成になっています。</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center mb-3">
-                                <i class="bi bi-question-circle-fill text-success" style="font-size: 2rem;"></i>
-                            </div>
-                            <h4>インタラクティブ</h4>
-                            <p>クイズ形式で楽しく学習でき、理解度を確認しながら進められます。</p>
-                        </div>
-                    </div> --}}
-
-                    <h3>学習コンテンツ</h3>
+                    <h4>学習コンテンツ</h4>
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>単語学習</h3>
+                            <h4>単語学習</h4>
                             <p>日常でよく使われるシチリア語の単語を、日本語と対照して学習できます。発音記号も併記しています。</p>
                         </div>
                         <div class="col-md-6">
-                            <h3>フレーズ学習</h3>
+                            <h4>フレーズ学習</h4>
                             <p>実際の会話で使える実用的なフレーズを、シチリア語と日本語で学習できます。</p>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <h3>動詞の活用</h3>
+                            <h4>動詞の活用</h4>
                             <p>シチリア語の動詞の活用を規則動詞と不規則動詞に分けて学習できます。</p>
                         </div>
                         <div class="col-md-6">
-                            <h3>クイズ機能</h3>
+                            <h4>クイズ機能</h4>
                             <p>学習した内容をクイズ形式で復習し、理解度を確認できます。</p>
                         </div>
                     </div>
 
-                    <h3>今後の予定</h3>
+                    <h4>今後の予定</h4>
                     <p>サイトは継続的に改善・拡張を予定しています：</p>
                     <ul>
                         <li>より多くの単語・フレーズの追加</li>
@@ -93,7 +67,7 @@
                         <li>モバイルアプリの開発</li>
                     </ul>
 
-                    <h3>作者について</h3>
+                    <h4>作者について</h4>
                     <div class="card bg-light">
                         <div class="card-body">
                             <h4>FinleyCox</h4>
@@ -106,7 +80,7 @@
                         </div>
                     </div>
 
-                    <h3>お問い合わせ</h3>
+                    <h4>お問い合わせ</h4>
                     <p>サイトに関するご質問、ご意見・ご要望等がございましたら<a href="/contact">お問い合わせページ</a>からお気軽にご連絡ください。</p>
                     <div class="text-center mt-4">
                         <p class="text-muted"><em>Insiemi, esploriamo il bellissimo mondo della lingua siciliana!</em></p>

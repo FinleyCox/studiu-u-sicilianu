@@ -28,7 +28,7 @@
 
 @section('content')
 <link href="/css/home.css" rel="stylesheet">
-<div class="home-content">
+<div class="home-content content-wide">
     <!-- 学習メニュー -->
     <div class="learning-menu mb-5">
         <h2 class="text-center mb-4">学習メニュー</h2>

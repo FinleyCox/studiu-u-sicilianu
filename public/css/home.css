@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+.home-content > * {
+    width: 100%;
+}
+
 .home-content h1 {
     text-align: center;
     color: #333;

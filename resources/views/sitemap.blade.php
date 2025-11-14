@@ -25,7 +25,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>メインページ</h3>
+                            <h4>メインページ</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/" class="text-decoration-none">
@@ -35,7 +35,7 @@
                                 </li>
                             </ul>
 
-                            <h3>学習コンテンツ</h3>
+                            <h4>学習コンテンツ</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/words" class="text-decoration-none">
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <h3>サイト情報</h3>
+                            <h4>サイト情報</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/about" class="text-decoration-none">
@@ -109,7 +109,7 @@
 
                     <hr class="my-4">
 
-                    <h3>学習の進め方</h3>
+                    <h4>学習の進め方</h4>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="text-center p-3 border rounded">
@@ -136,7 +136,7 @@
 
                     <hr class="my-4">
 
-                    <h3>外部リンク</h3>
+                    <h4>外部リンク</h4>
                     <div class="row">
                         <div class="col-md-6">
                             <h5>開発者情報</h5>
