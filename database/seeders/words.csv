@@ -1,0 +1,69 @@
+japanese,sicilian,category
+車,machina,1
+バイク,motu,1
+電車,trenu,1
+~と,cu / ca,2
+今夜,stasira,5
+午後の,i sira,5
+美しい,beddu / bedda,3
+残念ながら,sfortunatamente,3
+夜の,buonanotti,5
+寝る,dormiti,3
+夢みる,sunnai,3
+待つ,spettu,3
+キスする,vasari,3
+君を,to,1
+噛む,muzzicari,3
+硬い,duru,3
+顔,facci,1
+"1,1番目","unu, primu",6
+"2,2番目","dui, seccunu",6
+"3,3番目","tri, terzu",6
+"4,4番目","quattru, quartu",6
+"5,5番目","cincu, quintu",6
+"6,6番目","sei, sestu",6
+"7,7番目","setti, settimu",6
+"8,8番目","ottu, ottavu",6
+"9,9番目","novi, nonu",6
+"10,10番目","deci, decimu",6
+11,unnici,6
+12,dudici,6
+13,tridici,6
+14,quattrordici,6
+15,chinnici,6
+16,sidici,6
+17,diciassetti,6
+18,diciottu,6
+19,diciannovi,6
+20,vinti,6
+21,vintiunu,6
+22,vintidui,6
+23,vintitri,6
+30,trenta,6
+40,quaranta,6
+50,cinquanta,6
+60,sissanta,6
+70,sittanta,6
+80,ottanta,6
+90,novanta,6
+100,centu,6
+"1000,1000番目","milli, milesimu",6
+1001,milli unu,6
+2000,dumila,6
+ここ,cca,4
+あそこ,dda,4
+これ,"chistu, chista",4
+これら,chisti cca,4
+あれ,"chiddu, chidda",4
+あれら,chiddi dda,4
+真っ直ぐ,rittu,4
+右,destra,4
+左,sinistra,4
+食べる,manciari,3
+飲む,biviri,3
+支払う,pagari,3
+取る,pigghiari,3
+欲しい、したい,voliri,3
+理解する,capiri,3
+持つ,aviri,3
+行く,"annari, jiri",3
