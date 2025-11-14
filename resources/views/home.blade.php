@@ -15,7 +15,6 @@
     'description' => 'シチリア語の単語・フレーズ・動詞活用・クイズを学べる日本語向け学習サイト',
     'sameAs' => [
         'https://github.com/FinleyCox',
-        'https://qiita.com/_anonymous_dog_',
     ],
     'contactPoint' => [
         '@type' => 'ContactPoint',

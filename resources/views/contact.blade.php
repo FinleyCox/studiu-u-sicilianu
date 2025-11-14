@@ -88,11 +88,11 @@
                     <h3>📋 よくある質問</h3>
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq1">
+                            <h3 class="accordion-header" id="faq1">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
                                     Q. アカウント登録は必要ですか？
                                 </button>
-                            </h2>
+                            </h3>
                             <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     アカウント登録はありません。
@@ -101,11 +101,11 @@
                         </div>
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq3">
+                            <h3 class="accordion-header" id="faq3">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
                                     Q. モバイルアプリはありますか？
                                 </button>
-                            </h2>
+                            </h3>
                             <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     現在はウェブサイトのみですが、モバイルアプリの開発も検討中です。
@@ -114,11 +114,11 @@
                         </div>
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq4">
+                            <h3 class="accordion-header" id="faq4">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
                                     Q. コンテンツの追加予定はありますか？
                                 </button>
-                            </h2>
+                            </h3>
                             <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     はい！定期的に新しい単語やフレーズなどの学習コンテンツを追加しようとは考えているんですがなかなかできていません・・・済みません。
@@ -141,7 +141,6 @@
                         <div class="col-md-6">
                             <ul class="list-unstyled">
                                 <li><a href="https://github.com/FinleyCox" target="_blank" class="text-decoration-none">GitHub</a></li>
-                                <li><a href="https://qiita.com/_anonymous_dog_" target="_blank" class="text-decoration-none">Qiita</a></li>
                             </ul>
                         </div>
                     </div>

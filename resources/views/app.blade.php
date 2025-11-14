@@ -29,7 +29,7 @@
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
     <meta name="keywords" content="{{ $keywords }}">
-    <meta name="author" content="Ai Nakajima">
+    <meta name="author" content="FinleyCox">
     <meta name="theme-color" content="#7ebed1">
     <link rel="canonical" href="{{ $canonical }}">
     <link rel="alternate" hreflang="ja-JP" href="{{ $canonical }}">
@@ -376,7 +376,7 @@
                 font-size: 12px;
             }
         }
-        
+
         .content-wide {
             max-width: 1200px;
             width: 100%;
@@ -384,12 +384,12 @@
             padding: 40px 20px;
             box-sizing: border-box;
         }
-        
+
         .page-card {
             border-radius: 12px;
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
         }
-        
+
         @media (max-width: 768px) {
             .content-wide {
                 padding: 24px 16px;

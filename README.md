@@ -77,6 +77,6 @@ npm run dev
 MIT License
 
 ## 👤 作者
-Ai Nakajima(inter0370@gmail.com)
+FinleyCox(inter0370@gmail.com)
 - [GitHub](https://github.com/FinleyCox)
 

@@ -22,7 +22,7 @@
     <h1 class="mb-4">studiu u sicilianu について</h1>
     <div class="card page-card">
         <div class="card-body">
-                    <h2>サイトの目的</h2>
+                    <h3>サイトの目的</h3>
                     <p>
                         studiu u sicilianuは「シチリア語を勉強する」という意味。<br>
                         シチリア語を学びたい方のための学習支援サイトです。今では話す人も少なくなっている言語ですがシチリアルーツの米国人の中には学びたいと考えている人が少なくありません。<br>
@@ -30,7 +30,7 @@
                         なので自分が学んだことを人にも知ってもらって、どんどん使ってもらおう！と思い立ちこのサイトを作成しました
                     </p>
 
-                    <h2>なぜシチリア語?</h2>
+                    <h3>なぜシチリア語?</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <h3>貴重な言語であるため</h3>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <h2>サイトの特徴</h2>
+                    {{-- <h3>サイトの特徴</h3>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="text-center mb-3">
@@ -61,9 +61,9 @@
                             <h4>インタラクティブ</h4>
                             <p>クイズ形式で楽しく学習でき、理解度を確認しながら進められます。</p>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <h2>学習コンテンツ</h2>
+                    <h3>学習コンテンツ</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <h3>単語学習</h3>
@@ -85,16 +85,7 @@
                         </div>
                     </div>
 
-                    <h2>技術について</h2>
-                    <p>このサイトは以下の技術を使用して構築されています（2025-11-14現在）：</p>
-                    <ul>
-                        <li><strong>バックエンド:</strong> Laravel 11 (PHP)</li>
-                        <li><strong>フロントエンド:</strong> Vue.js 3, Bootstrap 5</li>
-                        <li><strong>データベース:</strong> SQLite</li>
-                        <li><strong>デプロイ:</strong> Render (Docker)</li>
-                    </ul>
-
-                    <h2>今後の予定</h2>
+                    <h3>今後の予定</h3>
                     <p>サイトは継続的に改善・拡張を予定しています：</p>
                     <ul>
                         <li>より多くの単語・フレーズの追加</li>
@@ -102,25 +93,21 @@
                         <li>モバイルアプリの開発</li>
                     </ul>
 
-                    <h2>作者について</h2>
+                    <h3>作者について</h3>
                     <div class="card bg-light">
                         <div class="card-body">
-                            <h4>Ai Nakajima</h4>
+                            <h4>FinleyCox</h4>
                             <p>言語が大好きでプログラミングと語学学習の両方に情熱を注いでいます！！あと犬も好きです</p>
                             <div class="d-flex gap-3">
                                 <a href="https://github.com/FinleyCox" target="_blank" class="btn btn-outline-dark">
                                     <i class="bi bi-github"></i> GitHub
                                 </a>
-                                <a href="https://qiita.com/_anonymous_dog_" target="_blank" class="btn btn-outline-primary">
-                                    <i class="bi bi-file-text"></i> Qiita
-                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <h2>お問い合わせ</h2>
+                    <h3>お問い合わせ</h3>
                     <p>サイトに関するご質問、ご意見・ご要望等がございましたら<a href="/contact">お問い合わせページ</a>からお気軽にご連絡ください。</p>
-
                     <div class="text-center mt-4">
                         <p class="text-muted"><em>Insiemi, esploriamo il bellissimo mondo della lingua siciliana!</em></p>
                     </div>

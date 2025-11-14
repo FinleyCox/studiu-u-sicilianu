@@ -22,10 +22,10 @@
     <div class="card page-card">
         <div class="card-body">
                     <p class="mb-4">studiu u sicilianuの全ページを一覧でご確認いただけます。</p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>🏠 メインページ</h3>
+                            <h3>メインページ</h3>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/" class="text-decoration-none">
@@ -34,8 +34,8 @@
                                     <br><small class="text-muted">サイトのトップページ</small>
                                 </li>
                             </ul>
-                            
-                            <h3>📚 学習コンテンツ</h3>
+
+                            <h3>学習コンテンツ</h3>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/words" class="text-decoration-none">
@@ -69,9 +69,9 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="col-md-6">
-                            <h3>ℹ️ サイト情報</h3>
+                            <h3>サイト情報</h3>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/about" class="text-decoration-none">
@@ -106,10 +106,10 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <hr class="my-4">
-                    
-                    <h3>🔍 学習の進め方</h3>
+
+                    <h3>学習の進め方</h3>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="text-center p-3 border rounded">
@@ -133,10 +133,10 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <hr class="my-4">
-                    
-                    <h3>📱 外部リンク</h3>
+
+                    <h3>外部リンク</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <h5>開発者情報</h5>
@@ -146,12 +146,6 @@
                                         <i class="bi bi-github"></i> GitHub
                                     </a>
                                     <br><small class="text-muted">ソースコードとプロジェクト情報</small>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="https://qiita.com/_anonymous_dog_" target="_blank" class="text-decoration-none">
-                                        <i class="bi bi-file-text"></i> Qiita
-                                    </a>
-                                    <br><small class="text-muted">技術記事とブログ</small>
                                 </li>
                             </ul>
                         </div>
@@ -163,11 +157,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    
-                    <div class="text-center mt-4">
-                        <p class="text-muted">効率的な学習のために、サイトマップを活用してください！</p>
-                        <p class="text-muted"><em>Buona fortuna con il vostro studio del siciliano!</em></p>
                     </div>
         </div>
     </div>
