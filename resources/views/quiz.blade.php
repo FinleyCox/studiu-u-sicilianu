@@ -1,5 +1,27 @@
 @extends('app')
 
+@section('title', 'シチリア語クイズ - studiu u sicilianu')
+@section('description', 'ランダムに出題されるシチリア語単語クイズで理解度をチェック。出題数を選んで語彙力を強化しましょう。')
+@section('keywords', 'シチリア語 クイズ, Sicilian quiz, シチリア語 テスト, シチリア語 単語テスト')
+@section('canonical', route('quiz'))
+
+@push('structured-data')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Quiz',
+    'name' => 'Sicilian Word Quiz',
+    'about' => 'シチリア語の語彙を確認できるインタラクティブクイズ',
+    'educationalLevel' => 'Beginner',
+    'provider' => [
+        '@type' => 'Organization',
+        'name' => 'studiu u sicilianu',
+        'url' => url('/'),
+    ],
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 <link href="/css/quiz.css" rel="stylesheet">
 <div class="quiz-container" id="quiz">

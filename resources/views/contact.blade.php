@@ -2,6 +2,26 @@
 
 @section('title', 'お問い合わせ - studiu u sicilianu')
 @section('description', 'studiu u sicilianuに関するご質問、ご意見、ご要望はこちらからお問い合わせください。学習内容、バグ報告、機能要望などを受け付けています。')
+@section('keywords', 'シチリア語 お問い合わせ, Sicilian contact, studiu u sicilianu support')
+@section('canonical', route('contact'))
+
+@push('structured-data')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'ContactPage',
+    'url' => route('contact'),
+    'description' => 'studiu u sicilianuへの問い合わせ窓口',
+    'contactPoint' => [
+        '@type' => 'ContactPoint',
+        'contactType' => 'customer support',
+        'email' => 'inter0370@gmail.com',
+        'areaServed' => 'JP',
+        'availableLanguage' => ['ja', 'it'],
+    ],
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
 
 @section('content')
 <div class="container mt-4">

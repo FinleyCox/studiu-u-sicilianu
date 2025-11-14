@@ -2,6 +2,19 @@
 
 @section('title', '利用規約 - studiu u sicilianu')
 @section('description', 'studiu u sicilianuの利用規約です。サイトの利用条件、禁止事項、免責事項について詳しく説明しています。')
+@section('keywords', 'シチリア語 利用規約, Sicilian terms of service')
+@section('canonical', route('terms-of-service'))
+
+@push('structured-data')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'TermsOfService',
+    'url' => route('terms-of-service'),
+    'name' => 'studiu u sicilianu terms of service',
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
 
 @section('content')
 <div class="container mt-4">

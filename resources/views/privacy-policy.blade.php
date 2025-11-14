@@ -2,6 +2,19 @@
 
 @section('title', 'プライバシーポリシー - studiu u sicilianu')
 @section('description', 'studiu u sicilianuのプライバシーポリシーです。個人情報の収集、利用、保護について詳しく説明しています。')
+@section('keywords', 'シチリア語 プライバシーポリシー, Sicilian privacy policy')
+@section('canonical', route('privacy-policy'))
+
+@push('structured-data')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'PrivacyPolicy',
+    'url' => route('privacy-policy'),
+    'name' => 'studiu u sicilianu privacy policy',
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
 
 @section('content')
 <div class="container mt-4">

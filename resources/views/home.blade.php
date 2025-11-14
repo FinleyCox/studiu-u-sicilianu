@@ -2,6 +2,30 @@
 
 @section('title', 'ホーム - studiu u sicilianu')
 @section('description', 'studiu u sicilianuのホームページです。シチリア語学習のための単語クイズ、動詞の活用、単語学習、お気に入り機能などにアクセスできます。')
+@section('keywords', 'シチリア語 学習, Sicilian language, シチリア語 クイズ, シチリア語 フレーズ, シチリア語 動詞活用')
+@section('canonical', route('home'))
+
+@push('structured-data')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'EducationalOrganization',
+    'name' => 'studiu u sicilianu',
+    'url' => url('/'),
+    'description' => 'シチリア語の単語・フレーズ・動詞活用・クイズを学べる日本語向け学習サイト',
+    'sameAs' => [
+        'https://github.com/FinleyCox',
+        'https://qiita.com/_anonymous_dog_',
+    ],
+    'contactPoint' => [
+        '@type' => 'ContactPoint',
+        'contactType' => 'support',
+        'email' => 'inter0370@gmail.com',
+        'availableLanguage' => ['ja', 'it'],
+    ],
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
 
 @section('content')
 <link href="/css/home.css" rel="stylesheet">

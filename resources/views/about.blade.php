@@ -2,6 +2,20 @@
 
 @section('title', 'サイトについて - studiu u sicilianu')
 @section('description', 'studiu u sicilianuについて詳しく紹介します。シチリア語学習サイトの目的、特徴、学習コンテンツ、今後の予定などを説明しています。')
+@section('keywords', 'studiu u sicilianu とは, シチリア語 サイト概要, Sicilian language project')
+@section('canonical', route('about'))
+
+@push('structured-data')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'AboutPage',
+    'url' => route('about'),
+    'name' => 'About studiu u sicilianu',
+    'description' => 'シチリア語学習サイトの目的と特徴',
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
 
 @section('content')
 <div class="container mt-4">

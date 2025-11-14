@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    @php
+        $defaultTitle = 'studiu u sicilianu - シチリア語学習サイト';
+        $defaultDescription = 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。';
+        $defaultKeywords = 'シチリア語, シチリア語学習, イタリア語, 言語学習, 単語, フレーズ, クイズ, 動詞活用';
+        $title = trim($__env->yieldContent('title')) ?: $defaultTitle;
+        $description = trim($__env->yieldContent('description')) ?: $defaultDescription;
+        $keywords = trim($__env->yieldContent('keywords')) ?: $defaultKeywords;
+        $canonical = trim($__env->yieldContent('canonical')) ?: url()->current();
+        $ogImage = trim($__env->yieldContent('og_image')) ?: asset('og-image.svg');
+        $structuredWebsite = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => 'studiu u sicilianu',
+            'url' => url('/'),
+            'inLanguage' => 'ja',
+            'description' => $description,
+        ];
+    @endphp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -8,17 +26,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <title>@yield('title', 'studiu u sicilianu - シチリア語学習サイト')</title>
-    <meta name="description" content="@yield('description', 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。')">
-    <meta name="keywords" content="シチリア語, 学習, イタリア語, 言語学習, 単語, フレーズ, クイズ, 動詞活用">
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <meta name="keywords" content="{{ $keywords }}">
     <meta name="author" content="Ai Nakajima">
-    <meta property="og:title" content="@yield('title', 'studiu u sicilianu - シチリア語学習サイト')">
-    <meta property="og:description" content="@yield('description', 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。')">
+    <meta name="theme-color" content="#7ebed1">
+    <link rel="canonical" href="{{ $canonical }}">
+    <link rel="alternate" hreflang="ja-JP" href="{{ $canonical }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="@yield('title', 'studiu u sicilianu - シチリア語学習サイト')">
-    <meta name="twitter:description" content="@yield('description', 'studiu u sicilianuは、シチリア語を学ぶための学習支援サイトです。単語、フレーズ、クイズ、動詞の活用など、段階的にシチリア語を学習できます。')">
+    <meta property="og:url" content="{{ $canonical }}">
+    <meta property="og:site_name" content="studiu u sicilianu">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:image" content="{{ $ogImage }}">
+    <meta property="og:image:alt" content="studiu u sicilianuのシチリア語学習コンテンツ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ $ogImage }}">
+    <script type="application/ld+json">
+        {!! json_encode($structuredWebsite, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
+    @stack('structured-data')
+    @stack('head')
     <!-- jQueryを先に読み込ませてからトースター-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- toastr CDN -->
@@ -347,7 +378,7 @@
         }
     </style>
 </head>
-<body>
+<body @hasSection('body_attributes'){!! trim($__env->yieldContent('body_attributes')) !!}@endif>
     <!-- ハンバーガーメニューボタン -->
     <button class="hamburger-btn" id="hamburgerBtn">
         <span class="bar"></span>
