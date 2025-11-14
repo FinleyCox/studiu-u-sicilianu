@@ -17,11 +17,11 @@ class PhraseTableSeeder extends Seeder
 
         $csvPath = database_path('seeders/phrases.csv');
         if (! file_exists($csvPath)) {
-            throw new \RuntimeException(\"phrases.csv が見つかりません: {$csvPath}\");
+            throw new \RuntimeException("phrases.csv が見つかりません: {$csvPath}");
         }
 
         if (($handle = fopen($csvPath, 'r')) === false) {
-            throw new \RuntimeException(\"phrases.csv を開けませんでした: {$csvPath}\");
+            throw new \RuntimeException("phrases.csv を開けませんでした: {$csvPath}");
         }
 
         $header = fgetcsv($handle);
