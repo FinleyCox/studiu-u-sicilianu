@@ -55,17 +55,11 @@ Route::get('/conjugation', function() {
 
 // Protected routes (authentication required)
 // Route::middleware('auth')->group(function() {
-//     Route::get('/favourites', function() {
-//     return view('favourites');
-// })->name('favourites');
-
 // Route::get('/user-menu', function() {
 //     return view('user-menu');
 // })->name('user-menu');
 // });
 
-// お気に入り機能（認証ミドルウェアを個別に適用） 
-// Route::post('/favourites', [App\Http\Controllers\WordController::class, 'addFavourite'])->middleware('auth');
 // Route::post('/delete-account', [App\Http\Controllers\AuthController::class, 'deleteAccount'])->middleware('auth');
 
 // Logout

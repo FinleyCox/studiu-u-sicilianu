@@ -4,9 +4,6 @@
 @section('description', '日常会話で使えるシチリア語フレーズをカテゴリー別に学習できます。音やニュアンスをイメージしながら繰り返し練習しましょう。')
 @section('keywords', 'シチリア語 フレーズ, Sicilian phrases, シチリア語 会話, シチリア語 表現')
 @section('canonical', route('phrases'))
-@section('body_attributes')
-data-userid="{{ Auth::id() ?? 0 }}"
-@endsection
 
 @push('structured-data')
 <script type="application/ld+json">
@@ -27,10 +24,7 @@ data-userid="{{ Auth::id() ?? 0 }}"
 @section('content')
 <link rel="stylesheet" href="/css/phrases.css">
 <div class="phrases-content">
-    <!-- メッセージ表示エリア -->
-    <div id="messageArea" class="alert" style="display: none;"></div>
-
-    <div class="phrase-list" id="phraseList" data-userid="{{ Auth::id() ?? 0 }}">
+    <div class="phrase-list" id="phraseList">
         <!-- フレーズがここに読み込まれます -->
     </div>
 

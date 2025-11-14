@@ -20,39 +20,6 @@
                 <i class="bi bi-arrow-repeat"></i> Conjugation
             </a>
         </li>
-        {{-- Auth related navigation --}}
-        {{-- @auth
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('favourites*') ? 'active' : '' }}" href="/favourites">
-                <i class="bi bi-heart"></i> Favourites
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('user-menu*') ? 'active' : '' }}" href="/user-menu">
-                <i class="bi bi-person"></i> User Menu
-            </a>
-        </li>
-        <li class="nav-item">
-            <form method="POST" action="/logout" style="display: inline;">
-                @csrf
-                <button type="submit" class="nav-link btn btn-link" style="border: none; background: none; padding: 0;">
-                    <i class="bi bi-box-arrow-right"></i> Logout
-                </button>
-            </form>
-        </li>
-        @else
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('login*') ? 'active' : '' }}" href="/login">
-                <i class="bi bi-box-arrow-in-right"></i> Login
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('register*') ? 'active' : '' }}" href="/register">
-                <i class="bi bi-person-plus"></i> Register
-            </a>
-        </li>
-        @endauth --}}
-        
         <li class="nav-item mt-3">
             <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">
                 <i class="bi bi-house"></i> Back to Home

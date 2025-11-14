@@ -17,13 +17,10 @@
 @endpush
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <h1 class="mb-4">利用規約</h1>
-            
-            <div class="card">
-                <div class="card-body">
+<div class="content-wide">
+    <h1 class="mb-4">利用規約</h1>
+    <div class="card page-card">
+        <div class="card-body">
                     <p class="text-muted">最終更新日: {{ date('Y年m月d日') }}</p>
                     
                     <h2>1. はじめに</h2>
@@ -36,7 +33,6 @@
                         <li>フレーズ学習</li>
                         <li>クイズ機能</li>
                         <li>動詞の活用学習</li>
-                        <li>お気に入り機能（登録ユーザーのみ）</li>
                     </ul>
                     
                     <h2>3. 利用条件</h2>
@@ -104,8 +100,6 @@
                     
                     <h2>11. お問い合わせ</h2>
                     <p>本規約に関するお問い合わせは、<a href="/contact">お問い合わせページ</a>からご連絡ください。</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>

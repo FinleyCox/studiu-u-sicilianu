@@ -24,15 +24,12 @@
 @endpush
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <h1 class="mb-4">お問い合わせ</h1>
-            
-            <div class="card">
-                <div class="card-body">
+<div class="content-wide">
+    <h1 class="mb-4">お問い合わせ</h1>
+    <div class="card page-card">
+        <div class="card-body">
                     <p class="mb-4">studiu u sicilianuに関するご質問、ご意見、ご要望がございましたら、お気軽にお問い合わせください。</p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <h3>📧 メールでのお問い合わせ</h3>
@@ -47,7 +44,7 @@
                                 • 詳細な内容
                             </p>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <h3>💬 お問い合わせの種類</h3>
                             <ul class="list-unstyled">
@@ -74,9 +71,9 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <hr class="my-4">
-                    
+
                     <h3>⏰ 返信について</h3>
                     <div class="alert alert-light">
                         <ul class="mb-0">
@@ -86,7 +83,7 @@
                             <li>緊急の場合は、件名に「【緊急】」と記載してください</li>
                         </ul>
                     </div>
-                    
+
                     {{-- よくある質問 --}}
                     <h3>📋 よくある質問</h3>
                     <div class="accordion" id="faqAccordion">
@@ -102,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq3">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
@@ -115,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq4">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
@@ -124,14 +121,14 @@
                             </h2>
                             <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    はい、定期的に新しい単語、フレーズ、学習コンテンツを追加しています。
+                                    はい！定期的に新しい単語やフレーズなどの学習コンテンツを追加しようとは考えているんですがなかなかできていません・・・済みません。
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <hr class="my-4">
-                    
+
                     <h3>🔗 関連リンク</h3>
                     <div class="row">
                         <div class="col-md-6">
@@ -148,13 +145,11 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="text-center mt-4">
                         <p class="text-muted">皆様からのご意見・ご要望をお待ちしております！</p>
                         <p class="text-muted"><em>Grazie per il vostro interesse in studiu u sicilianu!</em></p>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

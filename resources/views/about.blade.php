@@ -18,17 +18,16 @@
 @endpush
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-body">
+<div class="content-wide">
+    <h1 class="mb-4">studiu u sicilianu について</h1>
+    <div class="card page-card">
+        <div class="card-body">
                     <h2>サイトの目的</h2>
                     <p>
                         studiu u sicilianuは「シチリア語を勉強する」という意味。<br>
                         シチリア語を学びたい方のための学習支援サイトです。今では話す人も少なくなっている言語ですがシチリアルーツの米国人の中には学びたいと考えている人が少なくありません。<br>
-                        また、私も学びたい！と考えた時に日本語での学習リソースが非常に少ないことに気づきました。<br>
-                        なので自分が学んだことを人にも知って、使ってもらおう！と思い立ちこのサイトを作成しました
+                        また、私は日本人ですが今回シチリア語を学びたい！と考えた時、日本語での学習リソースが非常に少ないことに気づきました。<br>
+                        なので自分が学んだことを人にも知ってもらって、どんどん使ってもらおう！と思い立ちこのサイトを作成しました
                     </p>
 
                     <h2>なぜシチリア語?</h2>
@@ -125,8 +124,6 @@
                     <div class="text-center mt-4">
                         <p class="text-muted"><em>Insiemi, esploriamo il bellissimo mondo della lingua siciliana!</em></p>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

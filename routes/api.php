@@ -17,13 +17,3 @@ Route::get('/words', [WordController::class, 'getWordsByCategory']);
 Route::get('/words-contains', [WordController::class, 'index']);
 Route::get('/phrases', [PhraseController::class, 'getPhrases']);
 Route::post('/resetpassword', [LoginController::class, 'resetPassword']);
-
-// お気に入り関連
-Route::post('/favourites', [WordController::class, 'addFavourite']);
-Route::post('/phrases/favourites', [PhraseController::class, 'addFavourite']);
-Route::post('/words-contains/add-favourite', [WordController::class, 'addFavourite']);
-Route::post('/words-contains/is-favourite', [WordController::class, 'isFavourite']);
-Route::post('/words-contains/delete-favourite', [WordController::class, 'deleteFavourite']);
-Route::post('/delete-favourite', [WordController::class, 'deleteFavourite']);
-Route::get('/get-favourites', [WordController::class, 'getFavourites']);
-

@@ -17,13 +17,10 @@
 @endpush
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <h1 class="mb-4">サイトマップ</h1>
-            
-            <div class="card">
-                <div class="card-body">
+<div class="content-wide">
+    <h1 class="mb-4">サイトマップ</h1>
+    <div class="card page-card">
+        <div class="card-body">
                     <p class="mb-4">studiu u sicilianuの全ページを一覧でご確認いただけます。</p>
                     
                     <div class="row">
@@ -74,35 +71,6 @@
                         </div>
                         
                         <div class="col-md-6">
-                            {{-- ユーザー機能 --}}
-                            {{-- <h3>👤 ユーザー機能</h3>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <a href="/login" class="text-decoration-none">
-                                        <i class="bi bi-box-arrow-in-right"></i> ログイン
-                                    </a>
-                                    <br><small class="text-muted">アカウントにログイン</small>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="/register" class="text-decoration-none">
-                                        <i class="bi bi-person-plus"></i> 新規登録
-                                    </a>
-                                    <br><small class="text-muted">新しいアカウントを作成</small>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="/favourites" class="text-decoration-none">
-                                        <i class="bi bi-heart"></i> お気に入り
-                                    </a>
-                                    <br><small class="text-muted">お気に入りの単語・フレーズ（要ログイン）</small>
-                                </li>
-                                <li class="mb-2">
-                                    <a href="/user-menu" class="text-decoration-none">
-                                        <i class="bi bi-person"></i> ユーザーメニュー
-                                    </a>
-                                    <br><small class="text-muted">アカウント設定（要ログイン）</small>
-                                </li>
-                            </ul> --}}
-                            
                             <h3>ℹ️ サイト情報</h3>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
@@ -201,8 +169,6 @@
                         <p class="text-muted">効率的な学習のために、サイトマップを活用してください！</p>
                         <p class="text-muted"><em>Buona fortuna con il vostro studio del siciliano!</em></p>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

@@ -4,9 +4,6 @@
 @section('description', 'シチリア語の基本単語をカテゴリー別に学べます。人や物、前置詞、動詞や形容詞など、目的に合わせて語彙を強化しましょう。')
 @section('keywords', 'シチリア語 単語, シチリア語 語彙, シチリア語 学習, Sicilian vocabulary')
 @section('canonical', route('words'))
-@section('body_attributes')
-data-userid="{{ Auth::id() ?? 0 }}"
-@endsection
 
 @push('structured-data')
 <script type="application/ld+json">

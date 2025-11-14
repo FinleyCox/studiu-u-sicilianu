@@ -376,6 +376,25 @@
                 font-size: 12px;
             }
         }
+        
+        .content-wide {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        .page-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .content-wide {
+                padding: 24px 16px;
+            }
+        }
     </style>
 </head>
 <body @hasSection('body_attributes'){!! trim($__env->yieldContent('body_attributes')) !!}@endif>

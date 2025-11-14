@@ -46,10 +46,7 @@
 <div class="words-contains-content">
     <h2>Words Category : {{ $categoryName }}</h2>
     
-    <!-- メッセージ表示エリア -->
-    <div id="messageArea" class="alert" style="display: none;"></div>
-    
-    <div class="word-list" id="wordList" data-category="{{ request('category') }}" data-userid="{{ Auth::id() ?? 0 }}">
+    <div class="word-list" id="wordList" data-category="{{ request('category') }}">
         <!-- Words will be loaded here -->
     </div>
 </div>

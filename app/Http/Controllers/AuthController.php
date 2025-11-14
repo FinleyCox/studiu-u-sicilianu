@@ -58,9 +58,6 @@ class AuthController extends Controller
         try {
             $user = Auth::user();
             
-            // お気に入りデータを削除
-            \App\Models\Favourite::where('user_id', $user->id)->delete();
-            
             // ユーザーを削除
             $user->delete();
             

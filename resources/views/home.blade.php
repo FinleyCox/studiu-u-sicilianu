@@ -62,16 +62,6 @@
                     <small class="nav-description">シチリア語の動詞活用を学習</small>
                 </div>
             </a>
-            {{-- Favourites --}}
-            {{-- @auth
-            <a class="nav-link" href="/favourites">
-                <i class="bi bi-heart"></i>
-                <div class="nav-content">
-                    <span class="nav-title">お気に入り</span>
-                    <small class="nav-description">保存した単語・フレーズを復習</small>
-                </div>
-            </a>
-            @endauth --}}
         </nav>
     </div>
 
@@ -84,7 +74,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-1-circle-fill text-primary" style="font-size: 3rem;"></i>
                         <h4 class="mt-3">基礎学習</h4>
-                        <p class="card-text">まずは単語とフレーズから始めましょう。日常でよく使われる基本的な表現を覚えます。</p>
+                        <p class="card-text">まずは単語とフレーズから始めましょう！</p>
                         <a href="/words" class="btn btn-primary">単語を学ぶ</a>
                     </div>
                 </div>
@@ -94,7 +84,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-2-circle-fill text-success" style="font-size: 3rem;"></i>
                         <h4 class="mt-3">実践練習</h4>
-                        <p class="card-text">クイズで理解度を確認し、学習した内容を定着させましょう。</p>
+                        <p class="card-text">単語クイズに挑戦！定着度を高めていきましょう</p>
                         <a href="/quiz" class="btn btn-success">クイズに挑戦</a>
                     </div>
                 </div>
@@ -104,7 +94,7 @@
                     <div class="card-body text-center">
                         <i class="bi bi-3-circle-fill text-warning" style="font-size: 3rem;"></i>
                         <h4 class="mt-3">応用学習</h4>
-                        <p class="card-text">動詞の活用を学び、より複雑な表現を身につけましょう。</p>
+                        <p class="card-text">動詞の活用を学んで少しずつ自分で文章を組み立てられるようにしていきましょう</p>
                         <a href="/conjugation" class="btn btn-warning">活用を学ぶ</a>
                     </div>
                 </div>
@@ -117,31 +107,15 @@
         <h2 class="text-center mb-4">シチリア語について</h2>
         <div class="row">
             <div class="col-md-6">
-                <h4>🌍 歴史と文化</h4>
-                <p>シチリア語は、シチリア島で話されているロマンス語の一つです。アラビア語、ギリシャ語、フランス語などの影響を受け、豊かな文化的背景を持っています。</p>
+                <h4>歴史と文化</h4>
+                <p>シチリア語はイタリアのシチリア島で話されているロマンス語の一つです。周辺地域の言語と部分的に似通っており複数の文化的背景を感じることができます</p>
             </div>
             <div class="col-md-6">
-                <h4>🍰 身近なシチリア</h4>
-                <p>カンノーリ、アランチーニ、カッサータなど、日本でも親しまれているシチリアの美味しい料理。その背景にある言語を学んでみませんか？</p>
+                <h4>聞いたことがあるかも・・・？</h4>
+                <p>カンノーリ、アランチーニ、カッサータなど、日本でも聞くことがあるシチリアの美味しい料理。その背景にある言語を学んでみませんか？</p>
             </div>
         </div>
     </div>
-
-    {{-- 新規ユーザー向け --}}
-    {{-- @guest
-    <div class="new-user-section text-center mb-5">
-        <div class="card bg-light">
-            <div class="card-body">
-                <h3>新規ユーザーの方へ</h3>
-                <p class="mb-4">アカウントを作成すると、お気に入り機能を使って学習を効率化できます。</p>
-                <div class="d-flex gap-3 justify-content-center">
-                    <a href="/register" class="btn btn-primary">新規登録</a>
-                    <a href="/login" class="btn btn-outline-primary">ログイン</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endguest --}}
 </div>
 
 <style>
@@ -185,4 +159,4 @@
 }
 </style>
 
-@endsection 
+@endsection

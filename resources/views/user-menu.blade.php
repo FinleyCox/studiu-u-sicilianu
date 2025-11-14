@@ -25,17 +25,6 @@
             <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="bi bi-heart-fill text-danger" style="font-size: 2rem;"></i>
-                        <h5 class="card-title mt-2">お気に入り</h5>
-                        <p class="card-text">保存した単語・フレーズを確認</p>
-                        <a href="/favourites" class="btn btn-outline-danger">お気に入りを見る</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body text-center">
                         <i class="bi bi-graph-up text-success" style="font-size: 2rem;"></i>
                         <h5 class="card-title mt-2">学習統計</h5>
                         <p class="card-text">学習の進捗を確認</p>
