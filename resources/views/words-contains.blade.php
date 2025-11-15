@@ -64,8 +64,8 @@
         @endforelse
     </div>
 
-    <div class="mt-4">
-        {{ $words->links() }}
+    <div class="mt-4 d-flex justify-content-center">
+        {{ $words->links('pagination::bootstrap-5') }}
     </div>
 </div>
 
