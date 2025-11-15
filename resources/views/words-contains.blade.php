@@ -9,7 +9,7 @@
         5 => '時間帯',
         6 => '数字',
     ];
-    $categoryId = (int) request('category');
+    $categoryId = $categoryId ?? (int) request('category');
     $categoryName = $categoryNames[$categoryId] ?? 'シチリア語単語';
 @endphp
 
@@ -44,12 +44,32 @@
 @section('content')
 <link rel="stylesheet" href="/css/words.css">
 <div class="words-contains-content">
-    <h2>Words Category : {{ $categoryName }}</h2>
-    
-    <div class="word-list" id="wordList" data-category="{{ request('category') }}">
-        <!-- Words will be loaded here -->
+    <h2 class="mb-4">{{ $categoryName }} の単語一覧</h2>
+    <p class="text-muted">シチリア語：イタリア語読み（日本語訳）の順で表示しています。</p>
+
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+        @forelse ($words as $word)
+            <div class="col">
+                <div class="card h-100 word-item">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2">{{ $word->sicilian }}</h5>
+                        <p class="card-text mb-0">{{ $word->japanese }}</p>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="col">
+                <div class="alert alert-secondary text-center">このカテゴリーにはまだ単語が登録されていません。</div>
+            </div>
+        @endforelse
+    </div>
+
+    <div class="mt-4">
+        {{ $words->links() }}
     </div>
 </div>
 
-<script src="/js/words-contains.js"></script>
+<noscript>
+    <div class="alert alert-info mt-4">JavaScriptを無効にしてもページ下部から全単語を閲覧できます。</div>
+</noscript>
 @endsection

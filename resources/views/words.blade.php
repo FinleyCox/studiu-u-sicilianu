@@ -25,27 +25,36 @@
 
 @section('content')
 <div class="words-content">
-    <nav class="nav flex-column custom-nav">
-        <div class="nav-link" onclick="goToWordsContains(1)">
-            <i class="bi bi-book"> 人、物</i>
-        </div>
-        <div class="nav-link" onclick="goToWordsContains(2)">
-            <i class="bi bi-question-circle"> 前置詞</i>
-        </div>
-        <div class="nav-link" onclick="goToWordsContains(3)">
-            <i class="bi bi-book"> 動詞・副詞・形容詞など</i>
-        </div>
-        <div class="nav-link" onclick="goToWordsContains(4)">
-            <i class="bi bi-pencil"> 方向</i>
-        </div>
-        <div class="nav-link" onclick="goToWordsContains(5)">
-            <i class="bi bi-pencil-square"> 時間帯</i>
-        </div>
-        <div class="nav-link" onclick="goToWordsContains(6)">
-            <i class="bi bi-pencil-square"> 数字</i>
-        </div>
-    </nav>
-</div>
+    @foreach ($categories as $category)
+        <section class="category-card card mb-4">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                        <h3 class="mb-1">{{ $loop->iteration }}. {{ $category['title'] }}</h3>
+                        <p class="text-muted mb-3">{{ $category['description'] }}</p>
+                    </div>
+                    <a class="btn btn-outline-primary" href="{{ route('words-contains', ['category' => $category['id']]) }}">
+                        詳細を見る（全{{ $category['total'] }}語）
+                    </a>
+                </div>
+                @if ($category['samples']->isNotEmpty())
+                    <ul class="list-group list-group-flush">
+                        @foreach ($category['samples'] as $word)
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">{{ $word->sicilian }}</span>
+                                <span class="text-muted">{{ $word->japanese }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p class="text-muted mb-0">このカテゴリーの単語はまだ登録されていません。</p>
+                @endif
+            </div>
+        </section>
+    @endforeach
 
-<script src="/js/words.js"></script>
+    <noscript>
+        <div class="alert alert-info">JavaScriptを無効にしている場合でも上記リストから各カテゴリーの単語を閲覧できます。</div>
+    </noscript>
+</div>
 @endsection

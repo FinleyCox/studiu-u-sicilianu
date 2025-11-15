@@ -457,6 +457,7 @@
                     <h6 class="fw-bold mb-3">法的情報</h6>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="/privacy-policy" class="text-reset text-decoration-none">プライバシーポリシー</a></li>
+                        <li class="mb-2"><a href="/privacy-policy#adsense-policy" class="text-reset text-decoration-none">広告とクッキーの取扱い</a></li>
                         <li class="mb-2"><a href="/terms-of-service" class="text-reset text-decoration-none">利用規約</a></li>
                     </ul>
                 </div>

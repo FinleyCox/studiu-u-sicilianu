@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WordController;
 use App\Http\Controllers\PhraseController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\AuthController;
+use App\Models\Word;
+use App\Models\Phrase;
 
 // Home page
 Route::get('/', function() {
@@ -34,15 +37,49 @@ Route::get('/', function() {
 
 // Public routes (no authentication required)
 Route::get('/words', function() {
-    return view('words');
+    $categoryMeta = [
+        1 => ['title' => '人・物', 'description' => '身の回りにあるものや人を表す単語で、自己紹介や日常会話の土台になります。'],
+        2 => ['title' => '前置詞', 'description' => '「〜と」「〜から」といった位置・関係を示す前置詞で、文の意味を正しく伝えます。'],
+        3 => ['title' => '動詞・副詞・形容詞など', 'description' => '動作や状態、様子を表現できる動詞・副詞・形容詞のセットです。'],
+        4 => ['title' => '方向', 'description' => '道案内や移動の際に役立つ方向を示す表現です。'],
+        5 => ['title' => '時間帯', 'description' => '予定や習慣を伝える際に欠かせない時間帯の単語です。'],
+        6 => ['title' => '数字', 'description' => '買い物や日時を伝えるときに必要な数字表現です。'],
+    ];
+
+    $categories = collect($categoryMeta)->map(function ($meta, $categoryId) {
+        $baseQuery = Word::where('category', $categoryId);
+        $samples = (clone $baseQuery)->orderBy('id')->limit(5)->get();
+        $total = (clone $baseQuery)->count();
+
+        return [
+            'id' => $categoryId,
+            'title' => $meta['title'],
+            'description' => $meta['description'],
+            'samples' => $samples,
+            'total' => $total,
+        ];
+    })->values();
+
+    return view('words', [
+        'categories' => $categories,
+    ]);
 })->name('words');
 
-Route::get('/words-contains', function() {
-    return view('words-contains');
+Route::get('/words-contains', function(Request $request) {
+    $categoryId = (int) $request->input('category', 1);
+    $words = Word::where('category', $categoryId)->orderBy('id')->paginate(24)->withQueryString();
+
+    return view('words-contains', [
+        'categoryId' => $categoryId,
+        'words' => $words,
+    ]);
 })->name('words-contains');
 
 Route::get('/phrases', function() {
-    return view('phrases');
+    $phrases = Phrase::orderBy('id')->paginate(12);
+    return view('phrases', [
+        'phrases' => $phrases,
+    ]);
 })->name('phrases');
 
 Route::get('/quiz', function() {

@@ -24,15 +24,25 @@
 @section('content')
 <link rel="stylesheet" href="/css/phrases.css">
 <div class="phrases-content">
-    <div class="phrase-list" id="phraseList">
-        <!-- フレーズがここに読み込まれます -->
+    <div class="phrase-list">
+        @forelse ($phrases as $phrase)
+            <article class="phrase-item card mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-2">{{ $phrase->sicilian }}</h5>
+                    <p class="card-text mb-0">{{ $phrase->japanese }}</p>
+                </div>
+            </article>
+        @empty
+            <p class="text-center text-muted my-5">フレーズがまだ登録されていません。</p>
+        @endforelse
     </div>
 
-    <!-- ページネーション -->
-    <div id="pagination" class="d-flex justify-content-center mt-4">
-        <!-- ページネーションがここに読み込まれます -->
+    <div class="d-flex justify-content-center mt-4">
+        {{ $phrases->links() }}
     </div>
 </div>
 
-<script src="/js/phrases.js"></script>
+<noscript>
+    <div class="alert alert-info mt-4">指定ページのフレーズは上記リストからそのまま閲覧できます。</div>
+</noscript>
 @endsection

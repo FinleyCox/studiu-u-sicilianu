@@ -60,7 +60,7 @@
                         <li>Google AdSenseなどの広告配信サービス（匿名化された情報のみ）</li>
                     </ul>
 
-                    <h4>5. クッキーの使用</h4>
+                    <h4 id="cookie-policy">5. クッキーの使用</h4>
                     <p>当サイトでは、以下の目的でクッキーを使用します：</p>
                     <ul>
                         <li>ユーザー認証の維持</li>
@@ -70,9 +70,10 @@
                     </ul>
                     <p>ブラウザの設定でクッキーを無効にすることができますが、一部の機能が利用できなくなる場合があります。</p>
 
-                    <h4>6. Google AdSenseについて</h4>
-                    <p>当サイトでは、Google AdSenseを使用して広告を配信しています。Google AdSenseは、ユーザーの興味に基づいた広告を表示するためにクッキーを使用します。</p>
-                    <p>Google AdSenseのクッキーを無効にするには、<a href="https://www.google.com/settings/ads" target="_blank">Google広告設定</a>にアクセスしてください。</p>
+                    <h4 id="adsense-policy">6. Google AdSenseおよび第三者配信事業者について</h4>
+                    <p>当サイトではGoogle LLCが提供する広告配信サービスGoogle AdSenseを利用しています。Googleを含む第三者配信事業者は、ユーザーの興味・嗜好に基づく広告を表示するため、当サイトや他サイトでの閲覧情報に基づいたクッキー（DoubleClick Cookie など）を使用します。</p>
+                    <p>第三者配信事業者が提供するパーソナライズド広告を無効にしたい場合は<a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener">Google 広告設定</a>または<a href="https://optout.aboutads.info/?c=2&lang=ja" target="_blank" rel="noopener">About Adsのオプトアウトページ</a>をご利用ください。</p>
+                    <p>収集される情報が匿名性を維持しつつ利用目的の範囲内で取り扱われるよう努めるとともに、公式ポリシーに従い適切に管理します。Google のデータ利用方法については <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener">Google ポリシーと規約</a>をご確認ください。</p>
 
                     <h4>7. データの保存期間</h4>
                     <p>ユーザーの個人情報は、アカウントが削除されるまで保存されます。アカウント削除後は、適切な期間内に削除します。</p>
