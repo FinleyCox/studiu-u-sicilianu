@@ -59,28 +59,73 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5173189590303230"
      crossorigin="anonymous"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+        :root {
+            --bg-body: #ffffff;
+            --bg-content: #ffffff;
+            --bg-sidebar: #fafafa;
+            --bg-footer: #fafafa;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --border-color: #eeeeee;
+            --link-color: #1a1a1a;
+            --link-hover: #555555;
+            --sidebar-width: 250px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #121212;
+                --bg-content: #121212;
+                --bg-sidebar: #181818;
+                --bg-footer: #181818;
+                --text-main: #e0e0e0;
+                --text-muted: #a0a0a0;
+                --border-color: #333333;
+                --link-color: #e0e0e0;
+                --link-hover: #ffffff;
+            }
+        }
 
         body {
-            font-family: 'Merriweather', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             min-height: 100vh;
             margin: 0;
             display: flex;
             flex-direction: column;
+            line-height: 1.6;
         }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
         .header {
             text-align: center;
             display: block;
-            font-size: 40px;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
         }
 
         .main-content {
             margin-left: 0;
-            transition: margin-left 0.5s;
+            transition: margin-left 0.3s ease;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background-color: var(--bg-content);
         }
 
         .main-content .container {
@@ -92,29 +137,28 @@
             display: block;
             z-index: 1;
             margin-top: 0;
-            padding: 20px;
+            padding: 2rem;
             flex: 1;
         }
 
         @media (min-width: 768px) {
             .main-content {
-                margin-left: 250px;
+                margin-left: var(--sidebar-width);
             }
 
             .main-content .container {
-                max-width: 900px;
+                max-width: 800px; /* More readable width for text */
                 margin: 0 auto;
-                padding: 20px;
             }
         }
 
         .footer {
             width: 100%;
-            background-color: rgb(243, 240, 240);
-            padding: 20px 0;
+            background-color: var(--bg-footer);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
             margin-top: auto;
-            z-index: 1;
-            position: static;
+            color: var(--text-muted);
         }
 
         .footer .container {
@@ -124,24 +168,21 @@
 
         @media (min-width: 768px) {
             .footer .container {
-                margin-left: 250px;
-                max-width: calc(100% - 250px);
+                margin-left: var(--sidebar-width);
+                max-width: calc(100% - var(--sidebar-width));
             }
         }
-        .text-left {
-            padding-top: 12px;
-            font-size: 12px;
-            text-decoration: none;
-        }
+
         .sidenav {
             height: 100%;
-            width: 250px;
-            background-color: rgb(182, 216, 218);
+            width: var(--sidebar-width);
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
             overflow-x: hidden;
-            padding-top: 20px;
+            padding-top: 2rem;
             position: fixed;
             top: 0;
-            left: -250px;
+            left: calc(var(--sidebar-width) * -1);
             z-index: 1000;
             transition: left 0.3s ease;
         }
@@ -155,35 +196,40 @@
                 left: 0;
             }
         }
+
         .side-menu {
-            color: #555151;
-            border-radius: 9px;
-            background-color: rgb(126, 190, 193);
+            color: var(--text-main);
+            background-color: transparent;
+            padding: 0 1rem;
         }
 
         .side-menu .nav-link {
-            color: #000000 !important;
+            color: var(--text-main) !important;
             text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
         }
 
         .side-menu .nav-link:hover {
-            color: #333333 !important;
-            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--link-hover) !important;
+            text-decoration: underline;
+            background-color: transparent;
         }
 
-        /* ハンバーガーメニューボタン */
+        /* Hamburger Button - Minimalist */
         .hamburger-btn {
             display: block;
             position: fixed;
-            top: 20px;
-            left: 20px;
+            top: 1rem;
+            left: 1rem;
             z-index: 1001;
-            background: rgb(182, 216, 218);
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            color: var(--text-main);
         }
 
         @media (min-width: 768px) {
@@ -193,19 +239,43 @@
         }
 
         .hamburger-btn:hover {
-            background: rgb(126, 190, 193);
+            background-color: var(--bg-sidebar);
         }
 
         .hamburger-btn .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            margin: 5px 0;
-            transition: 0.3s;
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-main);
+            margin: 4px 0;
             display: block;
         }
 
-        /* オーバーレイ */
+        /* Back Button - Minimalist */
+        .back-btn {
+            display: none;
+            position: fixed;
+            top: 4rem; /* Adjusted for cleaner spacing */
+            left: 1rem;
+            z-index: 1000;
+            background: transparent;
+            border: none;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            color: var(--text-main);
+            transform: none; /* Removed movement */
+            text-decoration: underline;
+        }
+
+        .back-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Overlay */
         .sidebar-overlay {
             display: none;
             position: fixed;
@@ -213,8 +283,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.3); /* Lighter overlay */
             z-index: 999;
+            backdrop-filter: blur(2px); /* Slight blur for modern feel */
         }
 
         .sidebar-overlay.active {
@@ -227,173 +298,62 @@
             }
         }
 
-        /* 戻るボタン */
-        .back-btn {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            z-index: 1000;
-            background: rgb(126, 190, 193);
-            border: none;
-            border-radius: 5px;
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #333;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .back-btn:hover {
-            background: rgb(182, 216, 218);
-            transform: translateX(-2px);
-        }
-
-        .back-btn i {
-            margin-right: 5px;
-        }
-
-        /* オーバーレイ */
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        /* レスポンシブデザイン - タブレット */
-        @media (max-width: 1024px) {
-            .sidenav {
-                width: 200px;
-            }
-
-            .container {
-                margin-left: 200px;
-                max-width: calc(100% - 200px);
-            }
-        }
-
-        /* レスポンシブデザイン - モバイル */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .hamburger-btn {
-                display: block;
-            }
-
-            .back-btn {
-                display: block;
-            }
-
             .sidenav {
-                width: 280px;
-                height: 100%;
-                position: fixed;
+                width: 280px; /* Slightly wider on mobile for touch */
                 left: -280px;
-                top: 0;
-                transition: left 0.3s ease;
-                z-index: 1001;
-                background-color: rgb(182, 216, 218);
-                padding: 20px 15px;
             }
-
-            .sidenav.active {
-                left: 0;
-            }
-
+            
             .container {
-                margin-left: 0;
-                max-width: 100%;
-                margin-top: 80px;
-                padding: 0 15px;
+                margin-top: 3rem;
+                padding: 1rem;
             }
-
+            
             .header {
-                font-size: 28px;
-                margin-bottom: 15px;
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
             }
-
-            .sidebar-overlay.active {
+            
+            .back-btn {
                 display: block;
-            }
-        }
-
-        /* 小さいスマホ用 */
-        @media (max-width: 480px) {
-            .sidenav {
-                width: 260px;
-                left: -260px;
-            }
-
-            .container {
-                padding: 0 10px;
-                margin-top: 70px;
-            }
-
-            .header {
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
-
-            .hamburger-btn {
-                top: 15px;
-                left: 15px;
-                padding: 8px;
-            }
-
-            .back-btn {
-                top: 70px;
-                left: 15px;
-                padding: 6px 10px;
-                font-size: 13px;
-            }
-        }
-
-        /* 超小さいスマホ用 */
-        @media (max-width: 360px) {
-            .sidenav {
-                width: 240px;
-                left: -240px;
-            }
-
-            .container {
-                padding: 0 8px;
-                margin-top: 60px;
-            }
-
-            .header {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-
-            .back-btn {
-                top: 60px;
-                left: 12px;
-                padding: 5px 8px;
-                font-size: 12px;
             }
         }
 
         .content-wide {
-            max-width: 1200px;
+            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 2rem;
             box-sizing: border-box;
         }
 
-        .page-card {
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        /* Minimalist Alert Overrides */
+        .alert {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 4px;
+        }
+        
+        .alert-info {
+            background-color: transparent;
+            border-color: var(--text-main); /* Or keep it neutral */
         }
 
-        @media (max-width: 768px) {
-            .content-wide {
-                padding: 24px 16px;
-            }
+        .alert-light {
+            background-color: transparent;
+            border-color: var(--border-color);
+        }
+
+        .page-card {
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-content);
+            border-radius: 4px; /* Minimal radius */
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+             /* No shadow */
+             box-shadow: none;
         }
     </style>
 </head>
@@ -465,7 +425,6 @@
             <hr class="my-4">
             <div class="text-center small text-muted">
                 <p class="mb-1">&copy; {{ date('Y') }} studiu u sicilianu. All rights reserved.</p>
-                <p class="mb-0">Created by <a href="https://github.com/FinleyCox" target="_blank" class="text-reset text-decoration-none">FinleyCox</a></p>
             </div>
         </div>
     </div>

@@ -68,15 +68,10 @@
                     </ul>
 
                     <h4>作者について</h4>
-                    <div class="card bg-light">
+                    <div class="card page-card">
                         <div class="card-body">
                             <h4>FinleyCox</h4>
                             <p>言語が大好きでプログラミングと語学学習の両方に情熱を注いでいます！！あと犬も好きです</p>
-                            <div class="d-flex gap-3">
-                                <a href="https://github.com/FinleyCox" target="_blank" class="btn btn-outline-dark">
-                                    <i class="bi bi-github"></i> GitHub
-                                </a>
-                            </div>
                         </div>
                     </div>
 

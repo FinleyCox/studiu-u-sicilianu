@@ -1,89 +1,175 @@
+/* Minimalist Home CSS */
 .home-content {
-    padding: 40px 20px;
+    padding: 2rem 0;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.home-content > * {
+    max-width: 800px;
     width: 100%;
 }
 
-.home-content h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    font-weight: bold;
+.home-content>* {
+    width: 100%;
+}
+
+.home-content h2 {
+    text-align: left;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
 }
 
 .custom-nav {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid #dee2e6;
-    width: 100%;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
 }
 
 .custom-nav .nav-link {
-    color: #495057;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    padding: 15px 20px;
-    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    padding: 1rem;
+    font-size: 1rem;
     font-weight: 500;
-    border: 2px solid transparent;
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    box-shadow: none;
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
 .custom-nav .nav-link:hover {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    color: white;
+    background: var(--bg-sidebar);
+    color: var(--text-main);
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-    border-color: #007bff;
+    /* No underline for block links */
+    transform: none;
+    box-shadow: none;
+    border-color: var(--text-muted);
 }
 
-.custom-nav .nav-link:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+.custom-nav .nav-link .nav-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.custom-nav .nav-link .nav-title {
+    font-weight: 600;
+}
+
+.custom-nav .nav-link .nav-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.custom-nav .nav-link:hover .nav-description {
+    color: var(--text-main);
 }
 
 .custom-nav .nav-link i {
-    margin-right: 15px;
+    margin-right: 1rem;
     font-size: 1.2rem;
-    width: 20px;
+    width: 24px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+/* Learning Guide Cards */
+.learning-guide .card {
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    border-radius: 4px;
+    box-shadow: none;
+    transition: border-color 0.2s;
+    height: 100%;
+}
+
+.learning-guide .card:hover {
+    border-color: var(--text-muted);
+    transform: none;
+}
+
+.learning-guide .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-/* レスポンシブデザイン */
+.learning-guide .card-body i {
+    color: var(--text-main) !important;
+    /* Override bootstrap colors */
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    /* Moved from inline style */
+}
+
+.learning-guide h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.learning-guide .btn {
+    margin-top: auto;
+    /* Push button to bottom */
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 1.5rem;
+    box-shadow: none;
+    transition: all 0.2s;
+}
+
+.learning-guide .btn:hover {
+    background-color: var(--bg-sidebar);
+    border-color: var(--text-main);
+}
+
+/* About Section */
+.about-sicilian {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.about-sicilian h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.about-sicilian p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .home-content {
-        padding: 20px 15px;
+        padding: 1rem;
     }
-    
-    .home-content h1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
+
+    .home-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
-    
-    .custom-nav {
-        padding: 20px;
-    }
-    
+
     .custom-nav .nav-link {
-        padding: 12px 15px;
-        font-size: 1rem;
+        padding: 0.8rem;
     }
-} 
+}

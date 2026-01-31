@@ -29,9 +29,8 @@
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/" class="text-decoration-none">
-                                        <i class="bi bi-house"></i> ホーム
+                                        ホーム
                                     </a>
-                                    <br><small class="text-muted">サイトのトップページ</small>
                                 </li>
                             </ul>
 
@@ -39,33 +38,28 @@
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/words" class="text-decoration-none">
-                                        <i class="bi bi-book"></i> 単語
+                                        単語
                                     </a>
-                                    <br><small class="text-muted">シチリア語の単語を学習</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/words-contains" class="text-decoration-none">
-                                        <i class="bi bi-search"></i> 単語検索
+                                        単語検索
                                     </a>
-                                    <br><small class="text-muted">単語を検索して学習</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/phrases" class="text-decoration-none">
-                                        <i class="bi bi-chat-quote"></i> フレーズ
+                                        フレーズ
                                     </a>
-                                    <br><small class="text-muted">実用的なフレーズを学習</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/quiz" class="text-decoration-none">
-                                        <i class="bi bi-question-circle"></i> クイズ
+                                        クイズ
                                     </a>
-                                    <br><small class="text-muted">学習内容をクイズで復習</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/conjugation" class="text-decoration-none">
-                                        <i class="bi bi-arrow-repeat"></i> 動詞の活用
+                                        動詞の活用
                                     </a>
-                                    <br><small class="text-muted">動詞の活用を学習</small>
                                 </li>
                             </ul>
                         </div>
@@ -75,85 +69,28 @@
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <a href="/about" class="text-decoration-none">
-                                        <i class="bi bi-info-circle"></i> サイトについて
+                                        サイトについて
                                     </a>
-                                    <br><small class="text-muted">サイトの目的と特徴</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/contact" class="text-decoration-none">
-                                        <i class="bi bi-envelope"></i> お問い合わせ
+                                        お問い合わせ
                                     </a>
-                                    <br><small class="text-muted">ご質問・ご要望</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/privacy-policy" class="text-decoration-none">
-                                        <i class="bi bi-shield-check"></i> プライバシーポリシー
+                                        プライバシーポリシー
                                     </a>
-                                    <br><small class="text-muted">個人情報の取り扱い</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/terms-of-service" class="text-decoration-none">
-                                        <i class="bi bi-file-text"></i> 利用規約
+                                        利用規約
                                     </a>
-                                    <br><small class="text-muted">サイト利用の条件</small>
                                 </li>
                                 <li class="mb-2">
                                     <a href="/sitemap" class="text-decoration-none">
-                                        <i class="bi bi-diagram-3"></i> サイトマップ
+                                        サイトマップ
                                     </a>
-                                    <br><small class="text-muted">このページ</small>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h4>学習の進め方</h4>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="text-center p-3 border rounded">
-                                <i class="bi bi-1-circle-fill text-primary" style="font-size: 2rem;"></i>
-                                <h5 class="mt-2">基礎学習</h5>
-                                <p class="small">単語とフレーズから始めましょう</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-3 border rounded">
-                                <i class="bi bi-2-circle-fill text-success" style="font-size: 2rem;"></i>
-                                <h5 class="mt-2">実践練習</h5>
-                                <p class="small">クイズで理解度を確認</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-3 border rounded">
-                                <i class="bi bi-3-circle-fill text-warning" style="font-size: 2rem;"></i>
-                                <h5 class="mt-2">応用学習</h5>
-                                <p class="small">動詞の活用をマスター</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h4>外部リンク</h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>開発者情報</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <a href="https://github.com/FinleyCox" target="_blank" class="text-decoration-none">
-                                        <i class="bi bi-github"></i> GitHub
-                                    </a>
-                                    <br><small class="text-muted">ソースコードとプロジェクト情報</small>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>学習リソース</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <small class="text-muted">シチリア語に関する追加の学習リソースは、お問い合わせページからご相談ください。</small>
                                 </li>
                             </ul>
                         </div>

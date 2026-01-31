@@ -1,114 +1,138 @@
+/* Minimalist Words CSS */
 .words-content {
-    padding: 40px 20px;
+    padding: 2rem 0;
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;
+    max-width: 800px;
+    width: 100%;
 }
 
 .words-content h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-    font-weight: bold;
+    text-align: left;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
 }
 
-.words-content p {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
-    font-size: 1.2rem;
+.words-contains-content {
+    padding: 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.words-contains-content h2 {
+    text-align: left;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.words-content p,
+.words-contains-content p.text-muted {
+    text-align: left;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .word-item {
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: transparent;
+    box-shadow: none;
+    transition: none;
+    /* No hover effect */
+    margin-bottom: 1rem;
 }
 
+/* No hover changes */
 .word-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-color: #007bff;
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border-color);
 }
 
 .word-item .card-title {
-    color: #333;
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .word-item .card-text {
-    color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 
 .word-item .card-body {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.word-item .flex-grow-1 {
-    min-width: 0;
+/* Pagination container override */
+nav[role="navigation"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-.word-item .btn {
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+nav[role="navigation"] .hidden {
+    display: block !important;
+    /* Force show "Showing results" */
 }
 
-.word-item .btn:hover {
-    transform: scale(1.05);
+/* Adjust standard bootstrap pagination if used */
+.pagination {
+    margin-top: 1rem;
+    justify-content: center;
 }
 
-.word-item .btn-outline-primary {
-    border-color: #007bff;
-    color: #007bff;
+.page-link {
+    color: var(--text-main);
+    background-color: transparent;
+    border: 1px solid var(--border-color);
 }
 
-.word-item .btn-outline-primary:hover {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
+.page-link:hover {
+    color: var(--text-main);
+    background-color: var(--bg-sidebar);
+    border-color: var(--border-color);
 }
 
-.word-item .btn-outline-primary i {
-    font-size: 1rem;
+.page-item.active .page-link {
+    background-color: var(--text-main);
+    border-color: var(--text-main);
+    color: var(--bg-body);
 }
 
-/* メッセージ表示エリア */
-#messageArea {
-    margin-bottom: 20px;
-    border-radius: 10px;
-    padding: 15px 20px;
-    font-weight: 500;
+.page-item.disabled .page-link {
+    color: var(--text-muted);
+    background-color: transparent;
+    border-color: var(--border-color);
 }
 
-/* レスポンシブデザイン */
+/* Responsive */
 @media (max-width: 768px) {
-    .words-content {
-        padding: 20px 15px;
+
+    .words-content,
+    .words-contains-content {
+        padding: 1rem;
     }
-    
-    .words-content h2 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-    
-    .words-content p {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-    
-    .word-item .card-title {
-        font-size: 1.2rem;
-    }
-    
-    .word-item .card-text {
-        font-size: 1rem;
+
+    .words-content h2,
+    .words-contains-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
     }
 }

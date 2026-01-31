@@ -134,11 +134,6 @@
                                 <li><a href="/terms-of-service" class="text-decoration-none">利用規約</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><a href="https://github.com/FinleyCox" target="_blank" class="text-decoration-none">GitHub</a></li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="text-center mt-4">

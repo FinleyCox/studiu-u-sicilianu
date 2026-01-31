@@ -13,9 +13,6 @@
     'name' => 'studiu u sicilianu',
     'url' => url('/'),
     'description' => 'シチリア語の単語・フレーズ・動詞活用・クイズを学べる日本語向け学習サイト',
-    'sameAs' => [
-        'https://github.com/FinleyCox',
-    ],
     'contactPoint' => [
         '@type' => 'ContactPoint',
         'contactType' => 'support',
@@ -64,42 +61,7 @@
         </nav>
     </div>
 
-    <!-- 学習の進め方 -->
-    <div class="learning-guide mb-5">
-        <h2 class="text-center mb-4">学習の進め方</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <i class="bi bi-1-circle-fill text-primary" style="font-size: 3rem;"></i>
-                        <h4 class="mt-3">基礎学習</h4>
-                        <p class="card-text">まずは単語とフレーズから始めましょう！</p>
-                        <a href="/words" class="btn btn-primary">単語を学ぶ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <i class="bi bi-2-circle-fill text-success" style="font-size: 3rem;"></i>
-                        <h4 class="mt-3">実践練習</h4>
-                        <p class="card-text">単語クイズに挑戦！定着度を高めていきましょう</p>
-                        <a href="/quiz" class="btn btn-success">クイズに挑戦</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body text-center">
-                        <i class="bi bi-3-circle-fill text-warning" style="font-size: 3rem;"></i>
-                        <h4 class="mt-3">応用学習</h4>
-                        <p class="card-text">動詞の活用を学んで少しずつ自分で文章を組み立てられるようにしていきましょう</p>
-                        <a href="/conjugation" class="btn btn-warning">活用を学ぶ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- シチリア語について -->
     <div class="about-sicilian mb-5">
@@ -117,45 +79,6 @@
     </div>
 </div>
 
-<style>
-.welcome-section {
-    padding: 2rem 0;
-}
 
-.nav-content {
-    text-align: left;
-    margin-left: 1rem;
-}
-
-.nav-title {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-}
-
-.nav-description {
-    color: #6c757d;
-    font-size: 0.875rem;
-}
-
-.learning-guide .card {
-    transition: transform 0.2s;
-}
-
-.learning-guide .card:hover {
-    transform: translateY(-5px);
-}
-
-.about-sicilian {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 0.5rem;
-}
-
-.new-user-section .card {
-    border: none;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-</style>
 
 @endsection
