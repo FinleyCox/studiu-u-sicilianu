@@ -33,12 +33,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h4>メールでのお問い合わせ</h4>
-                            <p>以下のメールアドレスまでご連絡ください：</p>
+                            <p>以下のメールアドレスまでご連絡ください</p>
                             <div class="alert alert-info">
                                 <strong>inter0370@gmail.com</strong>
                             </div>
                             <p class="small text-muted">
-                                お問い合わせの際は、以下の情報を含めてください：<br>
+                                お問い合わせの際は以下の情報を含めてください：<br>
                                 • お名前（匿名可）<br>
                                 • お問い合わせの種類<br>
                                 • 詳細な内容
@@ -117,7 +117,7 @@
                             </h4>
                             <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    はい！定期的に新しい単語やフレーズなどの学習コンテンツを追加しようとは考えているんですがなかなかできていません・・・済みません。
+                                    はい！定期的に新しい単語やフレーズなどの学習コンテンツを追加しようとは考えているんですがなかなかできていません・・・すみません。
                                 </div>
                             </div>
                         </div>
@@ -129,9 +129,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="list-unstyled">
-                                <li><a href="/about" class="text-decoration-none">サイトについて</a></li>
-                                <li><a href="/privacy-policy" class="text-decoration-none">プライバシーポリシー</a></li>
-                                <li><a href="/terms-of-service" class="text-decoration-none">利用規約</a></li>
+                                <li><a href="{{ route('about') }}" class="text-decoration-none">サイトについて</a></li>
+                                <li><a href="{{ route('privacy-policy') }}" class="text-decoration-none">プライバシーポリシー</a></li>
+                                <li><a href="{{ route('terms-of-service') }}" class="text-decoration-none">利用規約</a></li>
                             </ul>
                         </div>
                     </div>

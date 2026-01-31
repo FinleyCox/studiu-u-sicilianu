@@ -1,0 +1,147 @@
+:root {
+    --bg-color: #fafafa;
+    --text-color: #333;
+    --card-bg: #fff;
+    --card-border: #eee;
+    --primary-color: #1a1a1a;
+    --font-main: 'Noto Sans JP', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --card-bg: #1e1e1e;
+        --card-border: #333;
+        --primary-color: #e0e0e0;
+    }
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    width: 100%;
+}
+
+/* Profile Section (Left) */
+.profile-section {
+    position: sticky;
+    top: 2rem;
+    text-align: center;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--card-border);
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.profile-bio {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Mini Apps Section (Right) */
+.apps-section {
+    padding-top: 1rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.app-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.app-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.app-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.app-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.app-link-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: right;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .profile-section {
+        position: static;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--card-border);
+    }
+
+    .container {
+        padding: 1rem;
+        align-items: flex-start;
+    }
+}

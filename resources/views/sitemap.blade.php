@@ -28,7 +28,7 @@
                             <h4>メインページ</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <a href="/" class="text-decoration-none">
+                                    <a href="{{ route('home') }}" class="text-decoration-none">
                                         ホーム
                                     </a>
                                 </li>
@@ -37,27 +37,27 @@
                             <h4>学習コンテンツ</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <a href="/words" class="text-decoration-none">
+                                    <a href="{{ route('words') }}" class="text-decoration-none">
                                         単語
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/words-contains" class="text-decoration-none">
+                                    <a href="{{ route('words-contains') }}" class="text-decoration-none">
                                         単語検索
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/phrases" class="text-decoration-none">
+                                    <a href="{{ route('phrases') }}" class="text-decoration-none">
                                         フレーズ
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/quiz" class="text-decoration-none">
+                                    <a href="{{ route('quiz') }}" class="text-decoration-none">
                                         クイズ
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/conjugation" class="text-decoration-none">
+                                    <a href="{{ route('conjugation') }}" class="text-decoration-none">
                                         動詞の活用
                                     </a>
                                 </li>
@@ -68,27 +68,27 @@
                             <h4>サイト情報</h4>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    <a href="/about" class="text-decoration-none">
+                                    <a href="{{ route('about') }}" class="text-decoration-none">
                                         サイトについて
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/contact" class="text-decoration-none">
+                                    <a href="{{ route('contact') }}" class="text-decoration-none">
                                         お問い合わせ
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/privacy-policy" class="text-decoration-none">
+                                    <a href="{{ route('privacy-policy') }}" class="text-decoration-none">
                                         プライバシーポリシー
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/terms-of-service" class="text-decoration-none">
+                                    <a href="{{ route('terms-of-service') }}" class="text-decoration-none">
                                         利用規約
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/sitemap" class="text-decoration-none">
+                                    <a href="{{ route('sitemap') }}" class="text-decoration-none">
                                         サイトマップ
                                     </a>
                                 </li>

@@ -408,17 +408,17 @@
                 <div class="col-md-4">
                     <h6 class="fw-bold mb-3">サイト情報</h6>
                     <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="/about" class="text-reset text-decoration-none">サイトについて</a></li>
-                        <li class="mb-2"><a href="/contact" class="text-reset text-decoration-none">お問い合わせ</a></li>
-                        <li class="mb-2"><a href="/sitemap" class="text-reset text-decoration-none">サイトマップ</a></li>
+                        <li class="mb-2"><a href="{{ route('about') }}" class="text-reset text-decoration-none">サイトについて</a></li>
+                        <li class="mb-2"><a href="{{ route('contact') }}" class="text-reset text-decoration-none">お問い合わせ</a></li>
+                        <li class="mb-2"><a href="{{ route('sitemap') }}" class="text-reset text-decoration-none">サイトマップ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h6 class="fw-bold mb-3">法的情報</h6>
                     <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="/privacy-policy" class="text-reset text-decoration-none">プライバシーポリシー</a></li>
-                        <li class="mb-2"><a href="/privacy-policy#adsense-policy" class="text-reset text-decoration-none">広告とクッキーの取扱い</a></li>
-                        <li class="mb-2"><a href="/terms-of-service" class="text-reset text-decoration-none">利用規約</a></li>
+                        <li class="mb-2"><a href="{{ route('privacy-policy') }}" class="text-reset text-decoration-none">プライバシーポリシー</a></li>
+                        <li class="mb-2"><a href="{{ route('privacy-policy') }}#adsense-policy" class="text-reset text-decoration-none">広告とクッキーの取扱い</a></li>
+                        <li class="mb-2"><a href="{{ route('terms-of-service') }}" class="text-reset text-decoration-none">利用規約</a></li>
                     </ul>
                 </div>
             </div>

@@ -12,12 +12,12 @@
     '@type' => 'ItemList',
     'name' => 'Sicilian Vocabulary Categories',
     'itemListElement' => [
-        ['@type' => 'ListItem', 'position' => 1, 'name' => '人・物', 'url' => url('/words-contains?category=1')],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => '前置詞', 'url' => url('/words-contains?category=2')],
-        ['@type' => 'ListItem', 'position' => 3, 'name' => '動詞・副詞・形容詞など', 'url' => url('/words-contains?category=3')],
-        ['@type' => 'ListItem', 'position' => 4, 'name' => '方向', 'url' => url('/words-contains?category=4')],
-        ['@type' => 'ListItem', 'position' => 5, 'name' => '時間帯', 'url' => url('/words-contains?category=5')],
-        ['@type' => 'ListItem', 'position' => 6, 'name' => '数字', 'url' => url('/words-contains?category=6')],
+        ['@type' => 'ListItem', 'position' => 1, 'name' => '人・物', 'url' => route('words-contains', ['category' => 1])],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => '前置詞', 'url' => route('words-contains', ['category' => 2])],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => '動詞・副詞・形容詞など', 'url' => route('words-contains', ['category' => 3])],
+        ['@type' => 'ListItem', 'position' => 4, 'name' => '方向', 'url' => route('words-contains', ['category' => 4])],
+        ['@type' => 'ListItem', 'position' => 5, 'name' => '時間帯', 'url' => route('words-contains', ['category' => 5])],
+        ['@type' => 'ListItem', 'position' => 6, 'name' => '数字', 'url' => route('words-contains', ['category' => 6])],
     ],
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
