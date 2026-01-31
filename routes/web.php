@@ -13,8 +13,31 @@ use App\Models\Phrase;
 // Home page
 // Landing Page
 Route::get('/', function() {
-    return view('landing');
+    $posts = \App\Models\Post::all();
+    return view('landing', [
+        'posts' => $posts
+    ]);
 })->name('landing');
+
+// Tech Blog Routes
+Route::get('/blog', function() {
+    $posts = \App\Models\Post::all();
+    return view('blog.index', [
+        'posts' => $posts
+    ]);
+})->name('blog.index');
+
+Route::get('/blog/{slug}', function($slug) {
+    return view('blog.show', [
+        'post' => \App\Models\Post::findOrFail($slug)
+    ]);
+})->name('blog.show');
+
+// Admin Routes (Basic Auth)
+Route::middleware('auth.basic')->prefix('admin')->group(function () {
+    Route::get('/blog/create', [App\Http\Controllers\PostController::class, 'create'])->name('admin.blog.create');
+    Route::post('/blog', [App\Http\Controllers\PostController::class, 'store'])->name('admin.blog.store');
+});
 
 // Main Application Routes
 Route::prefix('studiusicilianu')->group(function() {

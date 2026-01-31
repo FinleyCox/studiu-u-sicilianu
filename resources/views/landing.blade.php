@@ -20,10 +20,11 @@
                 </div>
             </div>
 
-            <!-- Right Side: Mini Apps -->
+            <!-- Right Side: Mini Apps & Blog -->
             <div class="apps-section">
+                <!-- Mini Apps -->
                 <h2 class="section-title">My Mini Apps</h2>
-                <div class="apps-grid">
+                <div class="apps-grid mb-5">
                     <!-- Studiu u Sicilianu Card -->
                     <a href="{{ route('home') }}" class="app-card">
                         <div class="app-title">studiu u sicilianu</div>
@@ -32,15 +33,19 @@
                         </div>
                         <div class="app-link-text">Open App &rarr;</div>
                     </a>
-
-                    <!-- Placeholder for future apps -->
-                    <!-- 
-                    <a href="#" class="app-card">
-                        <div class="app-title">Another App</div>
-                        <div class="app-desc">Description coming soon...</div>
-                        <div class="app-link-text">Open App &rarr;</div>
-                    </a> 
-                    -->
+                </div>
+            </div>
+            <div class="blog-section">
+                <!-- Tech Blog Card -->
+                 <h2 class="section-title">My Tech Blog</h2>
+                 <div class="apps-grid mb-5">
+                    <a href="{{ route('blog.index') }}" class="app-card">
+                        <div class="app-title">Tech Blog</div>
+                        <div class="app-desc">
+                            開発日記や技術スタックについての記事を書いています。
+                        </div>
+                        <div class="app-link-text">Read Blog &rarr;</div>
+                    </a>
                 </div>
             </div>
         </div>

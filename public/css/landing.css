@@ -36,8 +36,8 @@ body {
 
 .profile-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
+    grid-template-columns: 250px 1fr 1fr;
+    gap: 3rem;
     width: 100%;
 }
 
@@ -72,6 +72,10 @@ body {
 
 /* Mini Apps Section (Right) */
 .apps-section {
+    padding-top: 1rem;
+}
+
+.blog-section {
     padding-top: 1rem;
 }
 
