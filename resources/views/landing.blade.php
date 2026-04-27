@@ -20,33 +20,34 @@
                 </div>
             </div>
 
-            <!-- Right Side: Mini Apps & Blog -->
-            <div class="apps-section">
-                <!-- Mini Apps -->
+            <!-- Right Side: Lists -->
+            <div class="right-section">
+                <!-- My Mini Apps -->
                 <h2 class="section-title">My Mini Apps</h2>
-                <div class="apps-grid mb-5">
-                    <!-- Studiu u Sicilianu Card -->
-                    <a href="{{ route('home') }}" class="app-card">
-                        <div class="app-title">studiu u sicilianu</div>
-                        <div class="app-desc">
-                            シチリア語学習支援プラットフォーム。単語、フレーズ、クイズで楽しく学習できます。
-                        </div>
-                        <div class="app-link-text">Open App &rarr;</div>
-                    </a>
-                </div>
-            </div>
-            <div class="blog-section">
-                <!-- Tech Blog Card -->
-                 <h2 class="section-title">My Tech Blog</h2>
-                 <div class="apps-grid mb-5">
-                    <a href="{{ route('blog.index') }}" class="app-card">
-                        <div class="app-title">Tech Blog</div>
-                        <div class="app-desc">
-                            開発日記や技術スタックについての記事を書いています。
-                        </div>
-                        <div class="app-link-text">Read Blog &rarr;</div>
-                    </a>
-                </div>
+                <ul class="service-list">
+                    <li>
+                        <a href="{{ route('home') }}"><strong>studiu u sicilianu</strong></a>
+                        <span>シチリア語学習支援プラットフォーム。単語、フレーズ、クイズで楽しく学習できます。</span>
+                    </li>
+                </ul>
+
+                <!-- My Service -->
+                <h2 class="section-title">My Service</h2>
+                <ul class="service-list">
+                    <li>
+                        <a href="https://riki-ai.tech" target="_blank" rel="noopener noreferrer"><strong>riki-ai.tech</strong></a>
+                        <span>エリアのトレンドをAIで分析。最新情報をチェックできます</span>
+                    </li>
+                </ul>
+
+                <!-- My Tech Blog -->
+                <h2 class="section-title">My Tech Blog</h2>
+                <ul class="service-list">
+                    <li>
+                        <a href="{{ route('blog.index') }}"><strong>Tech Blog</strong></a>
+                        <span>開発日記や技術スタックについての記事を書いています。</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
