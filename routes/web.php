@@ -7,6 +7,8 @@ use App\Http\Controllers\WordController;
 use App\Http\Controllers\PhraseController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Models\Word;
 use App\Models\Phrase;
 
@@ -37,6 +39,29 @@ Route::get('/blog/{slug}', function($slug) {
 Route::middleware('auth.basic')->prefix('admin')->group(function () {
     Route::get('/blog/create', [App\Http\Controllers\PostController::class, 'create'])->name('admin.blog.create');
     Route::post('/blog', [App\Http\Controllers\PostController::class, 'store'])->name('admin.blog.store');
+});
+
+// Hockey Blog Routes (personal blog, separate from Tech Blog)
+Route::get('/hockey', [ArticleController::class, 'index'])->name('hockey.index');
+Route::get('/hockey/{article}', [ArticleController::class, 'show'])->name('hockey.show');
+Route::post('/hockey/{article}/comments', [CommentController::class, 'store'])
+    ->middleware('throttle:hockey-comments')
+    ->name('hockey.comments.store');
+
+// Hockey Blog Admin Login (session auth, must stay outside the auth/admin middleware below)
+Route::get('/admin/login', function () {
+    return view('admin.login');
+})->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
+// Hockey Blog Admin Routes (session auth + is_admin flag)
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/hockey/create', [ArticleController::class, 'create'])->name('admin.hockey.create');
+    Route::post('/hockey', [ArticleController::class, 'store'])->name('admin.hockey.store');
+    Route::get('/hockey/{article}/edit', [ArticleController::class, 'edit'])->name('admin.hockey.edit');
+    Route::put('/hockey/{article}', [ArticleController::class, 'update'])->name('admin.hockey.update');
+    Route::delete('/hockey/comments/{comment}', [CommentController::class, 'destroy'])->name('admin.hockey.comments.destroy');
 });
 
 // Main Application Routes
